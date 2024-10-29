@@ -1,0 +1,119 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "services" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-xl">Services</h1>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Service name"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Group"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="service-1">	National Tutoring Programme</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "ESFA"
+          },
+          {
+            text: "13 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Check if you need an Academic Technology Approval Scheme certificate</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--red">
+              Decommissioned
+            </strong>'
+          },
+          {
+            text: "Regions group"
+          },
+          {
+            text: "9 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Register trainee teachers</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "ESFA"
+          },
+          {
+            text: "2 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Explore education statistics</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            text: "ESFA"
+          },
+          {
+            text: "28 Sep 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Analyse school performance</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--blue">
+              Due to be commissioned
+            </strong>'
+          },
+          {
+            text: "Operations and Infrastructure group"
+          },
+          {
+            text: "20 Sep 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+{% endblock %}
+
+
+

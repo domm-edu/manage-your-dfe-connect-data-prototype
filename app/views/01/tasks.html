@@ -1,0 +1,119 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-xl">Tasks</h1>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Task name"
+        },
+        {
+          text: "Service"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="task-1">Updates to Academy Trust handbook come into effect</a>'
+          },
+          {
+            text: "National Tutoring Programme"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            text: "13 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Accounts return form is now available</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            text: "9 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">PE and sports premium funding</a>'
+          },
+          {
+            text: "PE and sport premium"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            text: "2 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+          },
+          {
+            text: "Universal free school meals payments"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--blue">
+              Queued
+            </strong>'
+          },
+          {
+            text: "28 Sep 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Published
+            </strong>'
+          },
+          {
+            text: "20 Sep 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+{% endblock %}
+
+
+

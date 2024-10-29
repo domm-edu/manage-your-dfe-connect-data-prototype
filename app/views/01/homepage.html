@@ -1,0 +1,256 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-xl">Manage your DfE Connect data</h1>
+
+    {% from 'node_modules/dfe-frontend/packages/components/card/macro.njk' import card %}
+
+    {{ card({
+      cards: [
+          {
+              "imageCard": false,
+              "imagePath": "/images/sample-image.jpg",
+              "altText": "Manage your tasks",
+              "headingLevel": "3",
+              "linkCard": true,
+              "link": "tasks",
+              "openInNewTab": false,
+              "heading": "Manage your tasks",
+              "description": "Update your recent and upcoming tasks. ",
+              "meta": ""
+          },
+          {
+            "imageCard": false,
+            "imagePath": "/images/sample-image.jpg",
+            "altText": "Sample Image",
+            "headingLevel": "3",
+            "linkCard": true,
+            "link": "#",
+            "openInNewTab": false,
+            "heading": "Manage your service",
+            "description": "Check your service details and make or request any changes.",
+            "meta": ""
+        },
+        {
+          "imageCard": false,
+          "imagePath": "/images/sample-image.jpg",
+          "altText": "Sample Image",
+          "headingLevel": "3",
+          "linkCard": true,
+          "link": "#",
+          "openInNewTab": false,
+          "heading": "Your pending requests",
+          "description": "View your requests that are awaiting signoff.",
+          "meta": ""
+      }
+      ]
+  }) }}
+
+
+
+    <h2 class="govuk-heading-l">Upcoming this month</h2>
+
+    <p class="govuk-body">These are your tasks for school business professionals that have deadlines this month.</p>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Service"
+        },
+        {
+          text: "Start date"
+        },
+        {
+          text: "Due date"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Submit your school census data</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            text: "3 Oct 2024"
+          },
+          {
+            text: "6 Nov 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            text: "No start date"
+          },
+          {
+            text: "Nov 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "No due date"
+          }
+        ],
+        [
+          {
+            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "28 Aug 2024"
+          },
+          {
+            text: "8 Sep 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Child protection and safeguarding policy</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "2 Sep 2024"
+          },
+          {
+            text: "8 Sep 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+    <h2 class="govuk-heading-l">Your change requests</h2>
+
+    <p class="govuk-body">These are pending requests for changes made by you or a member of your team.</p>
+    
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type of request"
+        },
+        {
+          text: "Requested on"
+        },
+        {
+          text: "Requested by"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Submit your school census data</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "3 Oct 2024"
+          },
+          {
+            text: "Laura Smith"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "No start date"
+          },
+          {
+            text: "Laura Smith"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "John Snow"
+          }
+        ],
+        [
+          {
+            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "Harry Miller"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Child protection and safeguarding policy</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "2 Sep 2024"
+          },
+          {
+            text: "Lucy Johnston"
+          }
+        ]
+      ]
+    }) }}
+
+{% endblock %}
+
+
+

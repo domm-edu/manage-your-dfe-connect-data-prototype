@@ -1,0 +1,22 @@
+{% set serviceName = "Manage your DfE Connect data" %}
+
+{% extends "layouts/_BASE.html" %}  
+
+{% block beforeContent %}
+{{ govukPhaseBanner({  tag: {    text: "beta"  },  html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'}) }}
+  
+{% if back %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endif %}
+{% endblock %}  
+
+{% block content %}
+<div class="govuk-grid-row"> 
+<div class="govuk-grid-column-two-thirds">  
+<!-- start of service specific block -->
+{% block service %}
+Text goes here, override this by overriding the block
+{% endblock %}
+<!-- end service specific block-->
+</div>
+{% endblock %}    
