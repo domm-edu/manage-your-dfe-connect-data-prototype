@@ -53,11 +53,18 @@
       ]
     }) }}
 
-
     {{ govukSummaryList({
       card: {
         title: {
-          text: "Task details"
+          text: "Team details"
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "View content pages and tasks"
+            }
+          ]
         }
       },
       rows: [

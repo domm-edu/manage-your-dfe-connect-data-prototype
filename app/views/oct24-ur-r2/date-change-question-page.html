@@ -1,0 +1,78 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = "Complete your autumn school census return" %}
+{% set published = "true" %}
+
+
+{% block service %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   
+    <h1 class="govuk-heading-l">Date changes</h1>
+
+    <p>We cannot announce a date change until the change has been published or scheduled to be published on GOV.UK.</p>
+
+    {{ govukRadios({
+      name: "dateChanges",
+      fieldset: {
+        legend: {
+          text: "Is the date you're changing also on GOV.UK?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Select whether your date change is displayed on GOV.UK"
+      },    
+      items: [
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: yesHtml
+          }
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+    {% set yesHtml %}
+    {{ govukRadios({
+      name: "publishedYet",
+      fieldset: {
+        legend: {
+          text: "Is the change already published or scheduled to be published on GOV.UK?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Select whether your date change is displayed on GOV.UK"
+      },    
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+    {% endset -%}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+{% endblock %}
+
+
+
