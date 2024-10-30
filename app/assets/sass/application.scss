@@ -9,3 +9,7 @@
 
 .govuk-width-container { @include govuk-width-container; }
 
+// Patterns not in Frontend
+
+@import "components/heading-search";
+

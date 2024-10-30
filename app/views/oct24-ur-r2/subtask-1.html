@@ -1,0 +1,170 @@
+{% extends "layouts/_SUBTASK.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = "Complete your autumn school census return" %}
+{% set published = "true" %}
+
+
+{% block service %}
+
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Summary"
+        }
+      },
+      rows: [
+      {
+        key: {
+          text: "Task name"
+        },
+        value: {
+          html: "Complete your autumn school census return"
+        },
+        actions: {
+          items: [
+            {
+            }
+          ]
+        }
+      },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            html: "Do not wait until the deadline. You should complete your school census on school census day or as close to school census day as possible"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Responsible team"
+          },
+          value: {
+            html: "School census"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "View",
+                visuallyHiddenText: "age"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Link"
+          },
+          value: {
+            html: '<a href="www.collect.gov.uk">www.collect.gov.uk</a>'        }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            html: "3 Oct 2024"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: "6 Nov 2024"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Requirement"
+          },
+          value: {
+            html: "Mandatory"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Content page information"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Part of DfE Connect page"
+      },
+      value: {
+        html: "School census"
+      },
+      actions: {
+        items: [
+          {
+            href: "service-1",
+            text: "View",
+            visuallyHiddenText: "whether details are known"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Other tasks on page"
+      },
+      value: {
+        html: '<p>Check the school census guidance for any changes</p>
+            <p>Amend your autumn school census data, if needed</p>
+            <p>Complete your spring school census return</p>
+            <p>Amend your spring school census data, if needed</p>
+            <p>Complete your summer school census return</p>
+            <p>Check the school census guidance for any changes</p>
+            <p>Amend your summer school census data, if needed</p>'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "View",
+            visuallyHiddenText: "relationship to lead tenant"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,80 @@
+{% extends "layouts/_TASK.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = "School census" %}
+{% set published = "true" %}
+
+
+{% block service %}
+
+
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "DfE Connect page details"
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            html: "Collection of pupil and school dates described in the census guidance. Happens over a one month period."
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Responsible team"
+          },
+          value: {
+            html: "School census"
+          },
+          actions: {
+            items: [
+              {
+                
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Tasks"
+          },
+          value: {
+            html: "<p>Complete your autumn school census return</p>
+            <p>Check the school census guidance for any changes</p>
+            <p>Amend your autumn school census data, if needed</p>
+            <p>Complete your spring school census return</p>
+            <p>Amend your spring school census data, if needed</p>
+            <p>Complete your summer school census return</p>
+            <p>Check the school census guidance for any changes</p>
+            <p>Amend your summer school census data, if needed</p>"
+          },
+          actions: {
+            items: [
+              {
+                href: "subtask-1",
+                text: "View",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+
+{% endblock %}
+
+
+

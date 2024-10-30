@@ -7,7 +7,9 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    <h1 class="govuk-heading-xl">Manage your DfE Connect data</h1>
+    <h1 class="govuk-heading-l">Manage your DfE Connect data</h1>
+
+    <p>Manage your DfE Connect pages, update tasks and track your current change requests.</p>
 
     {% from 'node_modules/dfe-frontend/packages/components/card/macro.njk' import card %}
 
@@ -16,13 +18,13 @@
           {
               "imageCard": false,
               "imagePath": "/images/sample-image.jpg",
-              "altText": "Manage your tasks",
+              "altText": "Manage your content pages",
               "headingLevel": "3",
               "linkCard": true,
               "link": "tasks",
               "openInNewTab": false,
-              "heading": "Manage your tasks",
-              "description": "Update your recent and upcoming tasks. ",
+              "heading": "Manage your content pages",
+              "description": "Update the content pages you have on DfE Connect. ",
               "meta": ""
           },
           {
@@ -33,8 +35,8 @@
             "linkCard": true,
             "link": "#",
             "openInNewTab": false,
-            "heading": "Manage your service",
-            "description": "Check your service details and make or request any changes.",
+            "heading": "Manage your team",
+            "description": "Check your team details and make any changes.",
             "meta": ""
         },
         {
@@ -46,7 +48,7 @@
           "link": "#",
           "openInNewTab": false,
           "heading": "Your pending requests",
-          "description": "View your requests that are awaiting signoff.",
+          "description": "View your requests that you've sent for review.",
           "meta": ""
       }
       ]
@@ -56,7 +58,7 @@
 
     <h2 class="govuk-heading-l">Upcoming this month</h2>
 
-    <p class="govuk-body">These are your tasks for school business professionals that have deadlines this month.</p>
+    <p class="govuk-body">These are your tasks for school business professionals this month.</p>
 
     {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -69,7 +71,7 @@
           text: "Title"
         },
         {
-          text: "Service"
+          text: "Team"
         },
         {
           text: "Start date"
@@ -81,21 +83,7 @@
       rows: [
         [
           {
-            html: '<a href="">Submit your school census data</a>'
-          },
-          {
-            text: "School census"
-          },
-          {
-            text: "3 Oct 2024"
-          },
-          {
-            text: "6 Nov 2024"
-          }
-        ],
-        [
-          {
-            html: '<a href="">School census guidance updated</a>'
+            html: '<a href="">Check the school census guidance for any changes</a>'
           },
           {
             text: "School census"
@@ -104,12 +92,12 @@
             text: "No start date"
           },
           {
-            text: "Nov 2024"
+            text: "Oct 2024"
           }
         ],
         [
           {
-            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+            html: '<a href="">Amend your autumn census return</a>'
           },
           {
             text: "School census"
@@ -123,30 +111,30 @@
         ],
         [
           {
-            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+            html: '<a href="">View updated data return guidance</a>'
           },
           {
-            text: "Academies accounts return"
+            text: "School workforce census"
           },
           {
-            text: "28 Aug 2024"
+            text: "1 Sep 2024"
           },
           {
-            text: "8 Sep 2024"
+            text: "Oct 2024"
           }
         ],
         [
           {
-            html: '<a href="">Child protection and safeguarding policy</a>'
+            html: '<a href="">Update your school workforce census documents</a>'
           },
           {
-            text: "Academies accounts return"
+            text: "School workforce census"
           },
           {
-            text: "2 Sep 2024"
+            text: "1 Oct 2024"
           },
           {
-            text: "8 Sep 2024"
+            text: "31 Oct 2024"
           }
         ]
       ]
@@ -156,7 +144,7 @@
 
     <h2 class="govuk-heading-l">Your change requests</h2>
 
-    <p class="govuk-body">These are pending requests for changes made by you or a member of your team.</p>
+    <p class="govuk-body">Pending requests for new tasks or changes made by you or a member of your team.</p>
     
     {{ govukTable({
       captionClasses: "govuk-table__caption--m",
@@ -170,25 +158,25 @@
           text: "Type of request"
         },
         {
-          text: "Requested on"
+          text: "Requested by"
         },
         {
-          text: "Requested by"
+          text: "Requested on"
         }
       ],
       rows: [
         [
           {
-            html: '<a href="">Submit your school census data</a>'
+            html: '<a href="">Review updated information for workforce census data</a>'
           },
           {
             text: "Change"
           },
           {
-            text: "3 Oct 2024"
+            text: "Lucy Johnson"
           },
           {
-            text: "Laura Smith"
+            text: "Oct 2024"
           }
         ],
         [
@@ -199,10 +187,10 @@
             text: "New"
           },
           {
-            text: "No start date"
+            text: "Lucy Johnson"
           },
           {
-            text: "Laura Smith"
+            text: "No start date"
           }
         ],
         [
@@ -213,38 +201,24 @@
             text: "Change"
           },
           {
-            text: "Sep 2024"
+            text: "Sam O'Connor"
           },
           {
-            text: "John Snow"
+            text: "Oct 2024"
           }
         ],
         [
           {
-            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+            html: '<a href="">Workforce census</a>'
           },
           {
             text: "Change"
           },
           {
-            text: "Sep 2024"
+            text: "Lucy Johnson"
           },
           {
-            text: "Harry Miller"
-          }
-        ],
-        [
-          {
-            html: '<a href="">Child protection and safeguarding policy</a>'
-          },
-          {
-            text: "Change"
-          },
-          {
-            text: "2 Sep 2024"
-          },
-          {
-            text: "Lucy Johnston"
+            text: "31 Oct 2024"
           }
         ]
       ]
