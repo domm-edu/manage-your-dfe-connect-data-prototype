@@ -1,0 +1,29 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = "Complete your autumn school census return" %}
+{% set published = "true" %}
+
+
+{% block service %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/date-changes" method="post">
+   
+    <h1 class="govuk-heading-l">You cannot change the date</h1>
+
+    <p>To make the changes, you must first publish the date change on GOV.UK.</p>
+
+   <p><a href="">Return to Complete you autumn school census return</a></p>
+
+   <p><a href="">Return to Home</a></p>
+
+  </form>
+
+{% endblock %}
+
+
+

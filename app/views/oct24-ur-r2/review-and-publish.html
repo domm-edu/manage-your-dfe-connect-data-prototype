@@ -1,0 +1,100 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+
+
+{% block service %}
+
+
+    <h1 class="govuk-heading-l">Review and publish details</h1>
+
+    <p>You have made content changes that must be reviewed by the DfE Connect content team.</p>
+
+    <form class="form" action="check-your-answers" method="post">
+
+      {% set urgentHtml %}
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        label: {
+          text: "Enter why the change is urgent"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "urgency",
+        fieldset: {
+          legend: {
+            text: "Urgency of review",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Select this option if your change request needs immediate attention"
+        },
+        items: [
+          {
+            value: "urgent",
+            text: "This change is urgent",
+            conditional: {
+              html: urgentHtml
+            }
+          }
+        ]
+      }) }}
+
+      {% set specificdateHtml %}
+      {{ govukDateInput({
+        id: "publish-specific-date",
+        namePrefix: "publish-specific-date",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "whentoPublish",
+        fieldset: {
+          legend: {
+            text: "When would you like us to publish the changes?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "We'll publish or schedule your changes to publish once we have reviewed your changes."
+        },    
+        items: [
+          {
+            value: "as soon as possible",
+            text: "As soon as possible"
+          },
+          {
+            value: "specific date",
+            text: "Specific date",
+            conditional: {
+              html: specificdateHtml
+            }
+          }
+        ]
+      }) }}
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+  </form>
+
+{% endblock %}
+
+
+

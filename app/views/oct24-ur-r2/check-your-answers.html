@@ -1,0 +1,94 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+
+
+{% block service %}
+
+
+    <h1 class="govuk-heading-l">Check your answers before sending for review</h1>
+
+    <form class="form" action="date-changes" method="post">
+      <h2 class="govuk-heading-m">Your edits</h2>
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Description"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous"
+      },
+      value: {
+        html: "English (3DMD)<br>PGCE with QTS full time"
+      }
+    },
+    {
+      key: {
+        text: "New"
+      },
+      value: {
+        html: "School name<br>Road, City, SW1 1AA"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Due date"
+    },
+    actions: {
+      items: [
+        {
+          href: "#",
+          text: "Change",
+          visuallyHiddenText: "of University of Bristol"
+        }
+      ]
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Previous"
+      },
+      value: {
+        html: "English (Q3X1)<br>PGCE with QTS full time"
+      }
+    },
+    {
+      key: {
+        text: "New"
+      },
+      value: {
+        html: "School name<br>Road, City, SW2 1AA"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Not edited</h2>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+  </form>
+
+{% endblock %}
+
+
+

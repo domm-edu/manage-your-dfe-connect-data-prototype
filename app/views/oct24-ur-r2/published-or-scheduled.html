@@ -5,28 +5,32 @@
 
 {% block service %}
 
-    <form class="form" action="date-changes" method="post">
+    <form class="form" action="gov-uk-published-scheduled" method="post">
 
     {{ govukRadios({
-      name: "dateChanges",
+      name: "publishedScheduled",
       fieldset: {
         legend: {
-          text: "Is the date you're changing also on GOV.UK?",
+          text: "Is the change already published or scheduled to be published on GOV.UK?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
       hint: {
-        text: "We cannot announce a date change until the change has been published or scheduled to be published on GOV.UK."
+        text: "Select whether your date change is displayed on GOV.UK"
       },    
       items: [
         {
           value: "yes",
-          text: "Yes"
+          text: "Yes, already published"
+        },
+        {
+          value: "due to be published",
+          text: "Yes, due to be published"
         },
         {
           value: "no",
-          text: "No"
+          text: "No, date not published or scheduled"
         }
       ]
     }) }}
@@ -36,7 +40,7 @@
       text: "Continue"
     }) }}
 
-  </form>
+    </form>
 
 {% endblock %}
 
