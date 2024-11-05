@@ -27,4 +27,28 @@ router.post('/date-changes', function(request, response) {
         }
     })
 
+     // If a date is selected when a user edits a task
+
+     router.post('/edit-task-date', function(request, response) {
+
+        var dateChange = request.session.data['task-start-date']
+        if (dateChange == "exact-start"){
+            response.redirect("date-change-question-page")
+        }
+        else if (dateChange == "month-only"){
+            response.redirect("date-change-question-page")
+        }
+        else if (dateChange == "exact-due-date"){
+            response.redirect("date-change-question-page")
+        }
+        else if (dateChange == "month-only-due-date"){
+            response.redirect("date-change-question-page")
+        } 
+        else {
+            response.redirect("check-your-answers")
+        }
+    })
+
+    
+
 module.exports = router
