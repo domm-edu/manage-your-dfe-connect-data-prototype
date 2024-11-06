@@ -11,6 +11,7 @@
 
     <form class="form" action="date-changes" method="post">
       <h2 class="govuk-heading-m">Your edits</h2>
+
 {{ govukSummaryList({
   card: {
     title: {
@@ -20,7 +21,8 @@
       items: [
         {
           href: "#",
-          text: "Change"
+          text: "Change",
+          visuallyHiddenText: "description"
         }
       ]
     }
@@ -31,7 +33,7 @@
         text: "Previous"
       },
       value: {
-        html: "English (3DMD)<br>PGCE with QTS full time"
+        html: "Do not wait until the deadline. You should complete your school census on school census day or as close to school census day as possible"
       }
     },
     {
@@ -39,7 +41,7 @@
         text: "New"
       },
       value: {
-        html: "School name<br>Road, City, SW1 1AA"
+        html: data['taskDescription']
       }
     }
   ]
@@ -55,7 +57,7 @@
         {
           href: "#",
           text: "Change",
-          visuallyHiddenText: "of University of Bristol"
+          visuallyHiddenText: "due date"
         }
       ]
     }
@@ -66,7 +68,7 @@
         text: "Previous"
       },
       value: {
-        html: "English (Q3X1)<br>PGCE with QTS full time"
+        html: "6 Nov 2024"
       }
     },
     {
@@ -74,7 +76,7 @@
         text: "New"
       },
       value: {
-        html: "School name<br>Road, City, SW2 1AA"
+        html: data['exact-due-date-day']
       }
     }
   ]
@@ -82,8 +84,82 @@
 
 <h2 class="govuk-heading-m">Not edited</h2>
 
+{{ govukSummaryList({
+  rows: [
+    {
+      key: {
+        text: "Task name"
+      },
+      value: {
+        text: "Complete your autumn school census return"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "task name"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Link"
+      },
+      value: {
+        html: '<a href="">https://www.gov.uk/guidance/school-census-submission</a>'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "link"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Start date"
+      },
+      value: {
+        text: "3 Oct 2024"
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "start date"
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: "Requirement"
+      },
+      value: {
+        html: 'Mandatory'
+      },
+      actions: {
+        items: [
+          {
+            href: "#",
+            text: "Change",
+            visuallyHiddenText: "requirement"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
     {{ govukButton({
-      text: "Continue"
+      text: "Continue",
+      href: "success"
     }) }}
 
   </form>

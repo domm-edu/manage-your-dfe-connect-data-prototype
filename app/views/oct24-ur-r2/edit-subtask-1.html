@@ -87,8 +87,8 @@
 
     {% set exactstartHtml %}
 {{ govukDateInput({
-  id: "exact-due-date",
-  namePrefix: "exact-due-date",
+  id: "exact-start-date",
+  namePrefix: "exact-start-date",
   fieldset: {
     legend: {
       text: ""
@@ -220,7 +220,7 @@
       },
       items: [
         {
-          value: "exact due date",
+          value: "exact-due-date",
           text: "Exact due date",
           checked: true,
           conditional: {
@@ -228,14 +228,14 @@
           }
         },
         {
-          value: "month only due date",
+          value: "month-only-due-date",
           text: "Month only",
           conditional: {
             html: monthonlyduedateHtml
           }
         },
         {
-          value: "no due date",
+          value: "no-due-date",
           text: "No due date"
         }
       ]

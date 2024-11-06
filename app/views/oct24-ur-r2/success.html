@@ -1,0 +1,30 @@
+{% extends "layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+
+
+{% block service %}
+
+    {{ govukPanel({
+      titleText: "Changes sent for review",
+      html: "Your reference number<br><strong>MK264739</strong>"
+    }) }}
+
+    <p>You've sent Complete your autumn school census return to us to review and publish.</p>
+
+    <p>We have sent you an email confirmation of the change review with your reference number to [user email].</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p>Our DfE Connect content team will review the details and then publish your task.</p>
+
+    <p>As you have selected this as urgent, we aim to do this by the end of the next working day.</p>
+
+    <p>We'll email you to confirm your task is live on DfE Connect or to ask for more information.</p>
+
+    <p><a href="requests">View your requests</a></p>
+
+{% endblock %}
+
+
+
