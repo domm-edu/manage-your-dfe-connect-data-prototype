@@ -10,7 +10,7 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-two-thirds">  
 
-    <h1 class="govuk-heading-l">Task details</h1>
+    <h1 class="govuk-heading-l">Add task details</h1>
 
     <form class="form" action="subtask-details-2" method="post">
 
@@ -33,6 +33,18 @@
       hint: {
         text: "Describe the task you are creating, if needed."
       }
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Team",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        html: "We've selected the main team responsible for the task to help as it's often the same. You can choose a different team instead if it's not right. You can also add a team if you cannot find what you're looking for."
+      },
+      id: "subTaskTeam",
+      name: "subTaskTeam"
     }) }}
 
     {{ govukInput({

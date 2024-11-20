@@ -12,7 +12,7 @@
 
     <h1 class="govuk-heading-l">Add task dates</h1>
 
-    <form class="form" action="check-your-answers" method="post">
+    <form class="form" action="../publish-and-review-details" method="post">
 
       {% set exactstartHtml %}
 {{ govukDateInput({
@@ -180,18 +180,6 @@
           text: "No due date"
         }
       ]
-    }) }}
-
-    {{ govukTextarea({
-      name: "commentsDetail",
-      id: "comments-detail",
-      label: {
-        text: "Comments (optional)",
-        classes: "govuk-fieldset__legend--s"
-      },
-      hint: {
-        text: "Enter any additional information you want to make a note of. This will be seen by anyone viewing your task."
-      }
     }) }}
 
     <div class="govuk-button-group">
