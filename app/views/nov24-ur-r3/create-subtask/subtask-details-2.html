@@ -1,0 +1,163 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Task details</h1>
+
+    <form class="form" action="add-insight-tags" method="post">
+
+      {{ govukRadios({
+        name: "requirement",
+        fieldset: {
+          legend: {
+            text: "Requirement",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Mandatory",
+            text: "Mandatory",
+            hint: {
+              text: "School business professionals must complete this subtask."
+            }
+          },
+          {
+            value: "Conditional",
+            text: "Conditional",
+            hint: {
+              text: "School business professionals can only complete this subtask if they meet certain criteria or as a response to a situation."
+            }
+          },
+          {
+            value: "Optional",
+            text: "Optional",
+            hint: {
+              text: "School business professionals do not have to complete this subtask. It is best practice only."
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios",
+        name: "transactionalsubTask",
+        fieldset: {
+          legend: {
+            text: "Is the task transactional?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          html: '<details class="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Definition of a transactional task
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <p>A task is transactional if it allows users to either:</p>
+              <ul class="govuk-list govuk-list--bullet">
+              <li>exchange information, money, permission, goods or services</li>
+              <li>submit personal information that results in a change to a government record</li>
+            </ul>
+            </div>
+          </details>'
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          },
+          {
+            value: "Do not know",
+            text: "Do not know"
+          }
+        ]
+      }) }}
+
+      {{ govukRadios({
+        name: "insightstagSize",
+        fieldset: {
+          legend: {
+            text: "Size",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            value: "Small",
+            text: "Small",
+            hint: {
+              html: '<p>Small subtasks usually:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>take around a day to complete</li>
+              <li>require little activity</li>
+              <li>involve tasks such as reading guidance or completing a short administration task</li>
+            </ul>'
+            }
+          },
+          {
+            value: "Medium",
+            text: "Medium",
+            hint: {
+              html: '<p>Medium subtasks usually:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>take around one week to complete</li>
+              <li>have a due date</li>
+              <li>involve straightforward tasks that may require additional effort such as, adding to a website or preparing estimated data</li>
+            </ul>'
+            }
+          },
+          {
+            value: "Large",
+            text: "Large",
+            hint: {
+              html: '<p>Large subtasks usually:</p>
+              <ul class="govuk-list govuk-list--bullet govuk-hint">
+              <li>take around 2 weeks or more to complete </li>
+              <li>require input or approval from others, like LAs or senior leadership</li>
+              <li>involve complex tasks such as, applying for funding</li>
+            </ul>'
+            }
+          }
+        ]
+      }) }}
+
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+  
+        {{ govukButton({
+          text: "Save and finish later",
+          classes: "govuk-button--secondary"
+        }) }}
+      
+        <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+      </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

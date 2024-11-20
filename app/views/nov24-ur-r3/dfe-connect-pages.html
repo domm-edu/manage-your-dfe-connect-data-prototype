@@ -1,0 +1,70 @@
+{% extends "./layouts/_CONNECT-PAGES.html" %}
+
+{% set headerActive = "tasks" %}
+
+{% block service %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Page name"
+        },
+        {
+          text: "Team"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="school-census">School census</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Published
+            </strong>'
+          },
+          {
+            text: "18 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School workforce census</a>'
+          },
+          {
+            text: "School workforce census"
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+{% endblock %}
+
+
+

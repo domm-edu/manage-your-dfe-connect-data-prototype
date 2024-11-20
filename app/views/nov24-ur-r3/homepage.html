@@ -1,0 +1,230 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-l">Manage your DfE Connect data</h1>
+
+    <p>Manage your DfE Connect pages, update tasks and track your current change requests.</p>
+
+    {% from 'node_modules/dfe-frontend/packages/components/card/macro.njk' import card %}
+
+    {{ card({
+      cards: [
+          {
+              "imageCard": false,
+              "imagePath": "/images/sample-image.jpg",
+              "altText": "Manage your content pages",
+              "headingLevel": "3",
+              "linkCard": true,
+              "link": "dfe-connect-pages",
+              "openInNewTab": false,
+              "heading": "Manage your content pages",
+              "description": "Update the content pages you have on DfE Connect. ",
+              "meta": ""
+          },
+          {
+            "imageCard": false,
+            "imagePath": "/images/sample-image.jpg",
+            "altText": "Sample Image",
+            "headingLevel": "3",
+            "linkCard": true,
+            "link": "services",
+            "openInNewTab": false,
+            "heading": "Manage your team",
+            "description": "Check your team details and make any changes.",
+            "meta": ""
+        },
+        {
+          "imageCard": false,
+          "imagePath": "/images/sample-image.jpg",
+          "altText": "Sample Image",
+          "headingLevel": "3",
+          "linkCard": true,
+          "link": "requests",
+          "openInNewTab": false,
+          "heading": "Your requests",
+          "description": "View requested changes that you and your team have sent for review.",
+          "meta": ""
+      }
+      ]
+  }) }}
+
+
+
+    <h2 class="govuk-heading-m">Upcoming this month</h2>
+
+    <p class="govuk-body">These are your tasks for school business professionals this month.</p>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Team"
+        },
+        {
+          text: "Start date"
+        },
+        {
+          text: "Due date"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Check the school census guidance for any changes</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            text: "No start date"
+          },
+          {
+            text: "Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Amend your autumn census return</a>'
+          },
+          {
+            text: "School census"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "No due date"
+          }
+        ],
+        [
+          {
+            html: '<a href="">View updated data return guidance</a>'
+          },
+          {
+            text: "School workforce census"
+          },
+          {
+            text: "1 Sep 2024"
+          },
+          {
+            text: "Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Update your school workforce census documents</a>'
+          },
+          {
+            text: "School workforce census"
+          },
+          {
+            text: "1 Oct 2024"
+          },
+          {
+            text: "31 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+    <h2 class="govuk-heading-m">Your pending requests</h2>
+
+    <p class="govuk-body">Pending requests for new tasks or changes made by you or a member of your team.</p>
+    
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type of request"
+        },
+        {
+          text: "Requested by"
+        },
+        {
+          text: "Requested on"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Review updated information for workforce census data</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "No start date"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Sam O'Connor"
+          },
+          {
+            text: "Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "31 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,128 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Add insight tags</h1>
+
+    <form class="form" action="add-audience-tags" method="post">
+
+      {{ govukCheckboxes({
+        name: "tags-activity",
+        fieldset: {
+          legend: {
+            text: "Activity",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Select the type of activity school business professionals will do for this task."
+        },
+        items: [
+          {
+            value: "Apply for something",
+            text: "Apply for something"
+          },
+          {
+            value: "Create a policy",
+            text: "Create a policy"
+          },
+          {
+            value: "Create or publish a report",
+            text: "Create or publish a report"
+          },
+          {
+            value: "Data return or submission",
+            text: "Data return or submission"
+          },
+          {
+            value: "Review data or guidance",
+            text: "Review data or guidance"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Do not know",
+            text: "Do not know"
+          }
+        ]
+      }) }}
+
+      {{ govukCheckboxes({
+        name: "tags-purpose",
+        fieldset: {
+          legend: {
+            text: "Purpose",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Select all the reasons why school business professionals need to do this task."
+        },
+        items: [
+          {
+            value: "Complying with regulations and guidance",
+            text: "Complying with regulations and guidance"
+          },
+          {
+            value: "Creating efficiency",
+            text: "Creating efficiency"
+          },
+          {
+            value: "Determining allocation",
+            text: "Determining allocation"
+          },
+          {
+            value: "Managing risk",
+            text: "Managing risk "
+          },
+          {
+            value: "Measuring and understanding",
+            text: "Measuring and understanding"
+          },
+          {
+            value: "Working in the open",
+            text: "Working in the open"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "Do not know",
+            text: "Do not know"
+          }
+        ]
+      }) }}
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

@@ -11,6 +11,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Start folder specific routes  
 router.use('/oct24-ur-r2', require('./views/oct24-ur-r2/_routes'));
+router.use('/nov24-ur-r3', require('./views/nov24-ur-r3/_routes'));
 
 
 module.exports = router

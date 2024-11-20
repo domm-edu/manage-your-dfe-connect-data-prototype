@@ -1,0 +1,221 @@
+{% extends "./layouts/_SUBTASK.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = "Complete your autumn school census return" %}
+{% set published = "true" %}
+
+
+{% block service %}
+
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Summary"
+        }
+      },
+      rows: [
+      {
+        key: {
+          text: "Task name"
+        },
+        value: {
+          html: "Complete your autumn school census return"
+        },
+        actions: {
+          items: [
+            {
+            }
+          ]
+        }
+      },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            html: "Do not wait until the deadline. You should complete your school census on school census day or as close to school census day as possible"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Responsible team"
+          },
+          value: {
+            html: "School census"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "View",
+                visuallyHiddenText: "age"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Link"
+          },
+          value: {
+            html: '<a href="www.collect.gov.uk">www.collect.gov.uk</a>'        }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            html: "3 Oct 2024"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: "6 Nov 2024"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Requirement"
+          },
+          value: {
+            html: "Mandatory"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Part of DfE Connect page"
+          },
+          value: {
+            html: "School census"
+          },
+          actions: {
+            items: [
+              {
+                href: "task-1",
+                text: "View",
+                visuallyHiddenText: "whether details are known"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Other tasks on this page</h2>
+
+    <p>These tasks are part of School census.</p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Task name</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">Due date</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Edit</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="complete-your-autumn-school-census-return">Complete your autumn school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="complete-your-autumn-school-census-return">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Check the school census guidance for any changes</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+            Draft
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your autumn school census date, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Complete your spring school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your spring school census date, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Complete your summer school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your summer school census data, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+            Archived
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{ govukButton({
+      text: "Add new task"
+    }) }}
+
+{% endblock %}
+
+
+
