@@ -28,7 +28,7 @@
       <tbody class="govuk-table__body">
         {% if data['task-start-date'] %}
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="ur-task">{{ data['subtaskName'] }}</a></th>
+          <td class="govuk-table__cell"><a href="">{{ data['subtaskName'] }}</a></th>
           <td class="govuk-table__cell">New</td>
           <td class="govuk-table__cell">Joe Smith</td>
           <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
@@ -60,6 +60,85 @@
         </tr>
       </tbody>
     </table>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type of request"
+        },
+        {
+          text: "Requested by"
+        },
+        {
+          text: "Requested on"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Complete your autumn school census return</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Adam Neville"
+          },
+          {
+            text: "23 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Sam O'Connor"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "21 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
 
     <h2 class="govuk-heading-m">Previously approved requests</h2>
 

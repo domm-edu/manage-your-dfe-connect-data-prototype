@@ -1,0 +1,205 @@
+{% extends "./layouts/_SUBTASK.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = data['subtaskName'] %}
+{% set inreview = "true" %}
+
+
+{% block service %}
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Summary
+    </h2>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Task name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subtaskName'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Description
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['task-description'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Team
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subTaskTeam'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> working situation (Lead tenant)</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Link
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subTaskLink'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['task-start-date'] == "Exact start date" %}
+
+            {{ data['exact-start-date-day'] }} {{ data['exact-start-date-month'] | monthName }} {{ data['exact-start-date-year']}}
+
+            {% elseif data['task-start-date'] == "Month only" %}
+
+            {{ data['month-only-start-date-day'] }} {{ data['month-only-start-date-month'] | monthName }} {{ data['month-only-start-date-year'] }}
+
+            {% else %}
+
+            No start date
+
+            {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Due date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['due-date'] == "Exact due date" %}
+
+            {{ data['exact-due-date-day'] }} {{ data['exact-due-date-month'] | monthName }} {{ data['exact-due-date-year'] }}
+
+            {% elseif data['due-date'] == "Month only" %}
+
+            {{ data['month-only-due-date-day'] }} {{ data['month-only-due-date-month'] | monthName }} {{ data['month-only-due-date-year'] }}
+
+            {% else %}
+
+            No due date
+
+            {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Requirement
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['requirement'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Part of DfE Connect page
+        </dt>
+        <dd class="govuk-summary-list__value">
+          School census
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> DfE Connect page</span></a>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+    <h2 class="govuk-heading-m">Other tasks on this page</h2>
+
+    <p>These tasks are part of School census.</p>
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Task name</th>
+          <th scope="col" class="govuk-table__header">Start date</th>
+          <th scope="col" class="govuk-table__header">Due date</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header">Edit</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="complete-your-autumn-school-census-return">Complete your autumn school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="complete-your-autumn-school-census-return">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Check the school census guidance for any changes</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+            Draft
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your autumn school census date, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Complete your spring school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your spring school census date, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Complete your summer school census return</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">
+            Published
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header"><a href="">Amend your summer school census data, if needed</a></th>
+          <td class="govuk-table__cell">4 Oct 2024</td>
+          <td class="govuk-table__cell">20 Nov 2024</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+            Archived
+          </strong></td>
+          <td class="govuk-table__cell"><a href="">Edit task</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{ govukButton({
+      text: "Add new task"
+    }) }}
+
+{% endblock %}
+
+
+

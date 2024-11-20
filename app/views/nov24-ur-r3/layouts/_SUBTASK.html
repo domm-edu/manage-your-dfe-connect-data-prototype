@@ -104,6 +104,49 @@
       ]
     }) }}
 
+    {% elseif inreview %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--pink">
+              In review
+            </strong>'
+          },
+          {
+            html: '<p><a href="edit-subtask-1">Edit task</a></p><p style="margin-bottom: 8px;"><a href="edit-task-1">Request to archive</a></p>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
     {% elseif archived %}
 
     {{ govukTable({
