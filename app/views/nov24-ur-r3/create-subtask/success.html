@@ -10,8 +10,10 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-two-thirds">  
 
+    {% if data['publish-task-date'] == "As soon as possible" %}
+
     {{ govukPanel({
-      titleText: "New task sent for review",
+      titleText: "New task sent for urgent review",
       html: "Your reference number<br><strong>TP564739</strong>"
     }) }}
 
@@ -32,6 +34,31 @@
 
   <p><a href="../requests">View your requests</a></p>
 
+  {% else %}
+
+
+  {{ govukPanel({
+    titleText: "New task sent for review",
+    html: "Your reference number<br><strong>TP564739</strong>"
+  }) }}
+
+  <p>You’ve sent {{ data['subtaskName'] }} return to us to review and publish. </p>
+
+  <p>We have sent you an email confirmation of the review request with your reference number to [user email].</p>
+
+  <h2 class="govuk-heading-m">What happens next</h2>
+
+  <p>A member of our DfE Connect content team will: </p>
+  <ul class="govuk-list--bullet">
+<li>review the details </li>
+<li>publish your task </li>
+</ul>
+<p>If you need additional support, you can contact [team email].</p>
+<p></p>As you have selected this as urgent, we aim to do this as soon as possible.</p>
+<p></p>We’ll email you to confirm your task is live on DfE Connect or to ask for more information.</p>
+
+<p><a href="../requests">View your requests</a></p>
+{% endif %}
 
 </form>
       

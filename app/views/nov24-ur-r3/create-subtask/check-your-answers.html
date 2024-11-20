@@ -12,7 +12,7 @@
 
     <h1 class="govuk-heading-l">Check your answers before creating the task</h1>
 
-    <form class="form" action="edit-task-date" method="post">
+    <form class="form" action="success" method="post">
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
@@ -137,8 +137,19 @@
           <dd class="govuk-summary-list__value">
 
 
-            {{ data['exact-start-date-day'] }}{{ data['exact-start-date-month| monthName'] }}{{ data['exact-start-date-year'] | govukDate }}
-            {{ data['month-only-start-date-day'] }}{{ data['month-only-start-date-month | monthName'] }}{{ data['month-only-start-date-year'] | govukDate }}
+            {% if data['task-start-date'] == "Exact start date" %}
+
+            {{ data['exact-start-date-day'] }} {{ data['exact-start-date-month'] | monthName }} {{ data['exact-start-date-year']}}
+
+            {% elseif data['task-start-date'] == "Month only" %}
+
+            {{ data['month-only-start-date-day'] }} {{ data['month-only-start-date-month'] | monthName }} {{ data['month-only-start-date-year'] }}
+
+            {% else %}
+
+            No start date
+
+            {% endif %}
 
 
           </dd>
@@ -152,14 +163,59 @@
           </dt>
           <dd class="govuk-summary-list__value">
 
-            {{ data['exact-due-date-day'] }}{{ data['exact-due-date-month | monthName'] }}{{ data['exact-due-date-year'] }}
-            {{ data['month-only-due-date-day'] }}{{ data['month-only-due-date-month | monthName'] }}{{ data['month-only-due-date-year'] }}
+            {% if data['due-date'] == "Exact due date" %}
+
+            {{ data['exact-due-date-day'] }} {{ data['exact-due-date-month'] | monthName }} {{ data['exact-due-date-year'] }}
+
+            {% elseif data['due-date'] == "Month only" %}
+
+            {{ data['month-only-due-date-day'] }} {{ data['month-only-due-date-month'] | monthName }} {{ data['month-only-due-date-year'] }}
+
+            {% else %}
+
+            No due date
+
+            {% endif %}
 
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> due date</span></a>
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Publish date
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+            {% if data['publish-task-date'] == "As soon as possible" %}
+            As soon as possible
+            {% else %}
+            {{ data['specific-publish-date-month'] | monthName }} {{ data['specific-publish-date-year'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+        </div>
+
+        {% if data['publish-task-date'] == "As soon as possible" %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Urgent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['urgentRequest'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+        </div>
+
+        {% endif %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Comments

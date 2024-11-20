@@ -6,7 +6,7 @@ const router = express.Router()
 router.post('/urgent-request', function(request, response) {
 
     var publishDate = request.session.data['publish-task-date']
-    if (publishDate == "soon"){
+    if (publishDate == "As soon as possible"){
         response.redirect("create-subtask/urgent")
     } else {
         response.redirect("create-subtask/comments")
