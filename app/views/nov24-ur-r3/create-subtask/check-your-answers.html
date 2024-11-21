@@ -4,13 +4,12 @@
 {% set back = "true" %}
 {% set nested = "true" %}
 
-
 {% block content %}
 
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-two-thirds">  
 
-    <h1 class="govuk-heading-l">Check your answers before creating the task</h1>
+    <h1 class="govuk-heading-l">Check your answers before sending for review</h1>
 
     <form class="form" action="success" method="post">
 
@@ -31,7 +30,7 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['task-description'] }}
+            {{ data['task-description'] or "No description added" }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
@@ -94,7 +93,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Insight tags
+            Activity and purpose
           </dt>
           <dd class="govuk-summary-list__value">
 
@@ -112,7 +111,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Audience tags
+            Audience details
           </dt>
           <dd class="govuk-summary-list__value">
 
@@ -183,6 +182,11 @@
           </dd>
         </div>
 
+      </dl>
+
+      <h2 class="govuk-heading-m">Publish and review details</h2>
+
+      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Publish date
@@ -192,7 +196,7 @@
             {% if data['publish-task-date'] == "As soon as possible" %}
             As soon as possible
             {% else %}
-            {{ data['specific-publish-date-month'] | monthName }} {{ data['specific-publish-date-year'] }}
+            {{ data['specific-publish-date-day'] }} {{ data['specific-publish-date-month'] | monthName }} {{ data['specific-publish-date-year'] }}
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -204,10 +208,10 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Urgent
+            Urgency of review
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['urgentRequest'] }}
+            {{ data['urgentRequest'] }}, {{ data['why-urgent'] }} 
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
@@ -221,18 +225,19 @@
             Comments
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['commentsDetail'] }}
+            {{ data['commentsDetail'] or "No comments added" }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
           </dd>
         </div>
+
       </dl>
 
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Confirm and return to task"
+        text: "Confirm and send for review"
       }) }}
     
       <a class="govuk-link" href="javascript:history.back()">Cancel</a>

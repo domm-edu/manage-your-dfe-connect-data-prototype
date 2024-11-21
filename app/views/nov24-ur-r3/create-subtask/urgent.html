@@ -10,17 +10,29 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-two-thirds">  
 
-    <form class="form" action="comments" method="post">
-      
-      {{ govukTextarea({
+    <form class="form" action="../urgent-request-question" method="post">
+
+      {{ govukRadios({
         name: "urgentRequest",
-        id: "urgent-request",
-        label: {
-          text: "Can you provide more detail about why this request is urgent?",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        }
+        fieldset: {
+          legend: {
+            text: "Is this request urgent?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
       }) }}
+
      
 
     <div class="govuk-button-group">

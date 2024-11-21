@@ -13,4 +13,14 @@ router.post('/urgent-request', function(request, response) {
     }
 })
 
-    module.exports = router
+router.post('/urgent-request-question', function(request, response) {
+
+    var isthisUrgent = request.session.data['urgentRequest']
+    if (isthisUrgent == "Yes"){
+        response.redirect("create-subtask/why-is-it-urgent")
+    } else {
+        response.redirect("create-subtask/comments")
+    }
+})
+
+module.exports = router

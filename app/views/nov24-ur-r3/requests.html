@@ -11,16 +11,55 @@
 
     <p>Check the status of your updates to new or existing tasks or services.</p>
 
+    <h2 class="govuk-heading-m">Your draft requests</h2>
+
+    <p>Saved requests that have not been sent for review yet, made by you or a member of your team. </p>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type"
+        },
+        {
+          text: "Requested by"
+        },
+        {
+          text: "Requested on"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
     <h2 class="govuk-heading-m">Your pending requests</h2>
 
     <p>Pending requests for new tasks or changes made by you or a member of your team.</p>
 
     <table class="govuk-table">
-      <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption>
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
           <th scope="col" class="govuk-table__header govuk-!-width-one-half">Title</th>
-          <th scope="col" class="govuk-table__header">Type of request</th>
+          <th scope="col" class="govuk-table__header">Type</th>
           <th scope="col" class="govuk-table__header">Requested by</th>
           <th scope="col" class="govuk-table__header">Requested on</th>
         </tr>
@@ -74,7 +113,7 @@
           text: "Title"
         },
         {
-          text: "Type of request"
+          text: "Type"
         },
         {
           text: "Approved on"
