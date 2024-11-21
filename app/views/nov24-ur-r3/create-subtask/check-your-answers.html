@@ -32,9 +32,15 @@
           <dd class="govuk-summary-list__value">
             {{ data['task-description'] or "No description added" }}
           </dd>
+          {% if data['task-description'] %}
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
           </dd>
+          {% else %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+          {% endif %}
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -227,9 +233,15 @@
           <dd class="govuk-summary-list__value">
             {{ data['commentsDetail'] or "No comments added" }}
           </dd>
+          {% if data['commentsDetail'] %}
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
           </dd>
+          {% else %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+          {% endif %}
         </div>
 
       </dl>
