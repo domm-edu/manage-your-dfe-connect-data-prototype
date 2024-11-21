@@ -1,0 +1,41 @@
+{% set serviceName = "Manage your DfE Connect data" %}
+
+{% extends "layouts/main.html" %}
+
+{% block header %}  
+
+<header class="dfe-header" role="banner">
+  <div class="govuk-width-container dfe-header__container">
+     <div class="dfe-header__logo">
+        <a class="dfe-header__link" href="/" aria-label="DfE homepage">
+        <img src="/public/images/dfe-logo.png" class="dfe-logo" alt="Department for Education">
+        <img src="/public/images/dfe-logo-alt.png" class="dfe-logo-hover" alt="Department for Education">
+        </a>
+     </div>
+  </div>
+  <div class="govuk-width-container dfe-header__service-name" style="margin-bottom: 20px;">
+     <a href="/" class="dfe-header__link--service">Manage your DfE Connect data prototype</a>
+  </div>
+  
+</header>
+
+{% endblock %}    
+
+{% block beforeContent %}
+ 
+
+{% if back %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endif %}
+{% endblock %}  
+
+{% block content %}
+<div class="govuk-grid-row"> 
+<div class="govuk-grid-column-two-thirds">  
+<!-- start of service specific block -->
+{% block service %}
+Text goes here, override this by overriding the block
+{% endblock %}
+<!-- end service specific block-->
+</div>
+{% endblock %}    

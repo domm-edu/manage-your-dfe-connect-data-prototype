@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/_INDEX.html" %}
 
 {% set pageName="Home" %}
 
@@ -7,13 +7,18 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+    <h1 class="govuk-heading-l">
+      Manage your DfE Connect data prototype
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    <h2 class="govuk-heading-m">Current version</h2>
+    <p>UR round 3 - add a new task</p>
+    <p><a href="nov24-ur-r3/homepage">View prototype</a></p>
+
+    <h2 class="govuk-heading-m">Previous versions</h2>
+    <p>UR round 2</p>
+    <p><a href="oct24-ur-r2/homepage">View prototype</a></p>
+
   </div>
 </div>
 
