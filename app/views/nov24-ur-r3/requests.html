@@ -11,47 +11,7 @@
 
     <p>Check the status of your updates to new or existing tasks or services.</p>
 
-    <h2 class="govuk-heading-m">Your draft requests</h2>
-
-    <p>Saved requests that have not been sent for review yet, made by you or a member of your team. </p>
-
-    {{ govukTable({
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: false,
-      classes: "govuk-table--small-text-until-tablet",
-      head: [
-        {
-          text: "Task name"
-        },
-        {
-          text: "Type"
-        },
-        {
-          text: "Requested by"
-        },
-        {
-          text: "Requested on"
-        }
-      ],
-      rows: [
-        [
-          {
-            html: '<a href="">School census guidance updated</a>'
-          },
-          {
-            text: "New"
-          },
-          {
-            text: "Lucy Johnson"
-          },
-          {
-            text: "22 Oct 2024"
-          }
-        ]
-      ]
-    }) }}
-
-    <h2 class="govuk-heading-m">Your pending requests</h2>
+    <h2 class="govuk-heading-m">Requests pending review</h2>
 
     <p>Pending requests for new tasks or changes made by you or a member of your team.</p>
 
@@ -100,7 +60,7 @@
       </tbody>
     </table>
 
-    <h2 class="govuk-heading-m">Previously approved requests</h2>
+    <h2 class="govuk-heading-m">Approved requests</h2>
 
     <p>Approved requests for new tasks or changes made by you or a member of your team.</p>
 
@@ -196,6 +156,45 @@
       ]
     }) }}
 
+    <h2 class="govuk-heading-m">Declined requests</h2>
+
+    <p>Declined requests for new tasks or changes, made by you or a member of your team. </p>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Task name"
+        },
+        {
+          text: "Type"
+        },
+        {
+          text: "Requested by"
+        },
+        {
+          text: "Requested on"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
 
 
 {% endblock %}
