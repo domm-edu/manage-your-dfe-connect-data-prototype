@@ -1,0 +1,205 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Add task dates</h1>
+
+    <form class="form" action="../publish-and-review-details" method="post">
+
+      {% set exactstartHtml %}
+{{ govukDateInput({
+  id: "exact-start-date",
+  namePrefix: "exact-start-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set monthonlyHtml %}
+{{ govukDateInput({
+  id: "exact-due-date",
+  namePrefix: "month-only-start-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "task-start-date",
+  fieldset: {
+    legend: {
+      text: "Start date",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose the level of detail you have about the date that school business professionals can begin the task."
+  },
+  items: [
+    {
+      value: "Exact start date",
+      text: "Exact start date",
+      conditional: {
+        html: exactstartHtml
+      }
+    },
+    {
+      value: "Month only",
+      text: "Month only",
+      conditional: {
+        html: monthonlyHtml
+      }
+    },
+    {
+      value: "No start date",
+      text: "No start date"
+    }
+  ]
+}) }}
+
+
+
+    {% set exactduedateHtml %}
+    {{ govukDateInput({
+      id: "exact-due-date",
+      namePrefix: "exact-due-date",
+      fieldset: {
+        legend: {
+          text: ""
+        }
+      },
+      items: [
+      {
+        classes: "govuk-input--width-2",
+        name: "day"
+      },
+      {
+        classes: "govuk-input--width-2",
+        name: "month"
+      },
+      {
+        classes: "govuk-input--width-4",
+        name: "year"
+      }
+    ]
+    }) }}
+    {% endset -%}
+
+    {% set monthonlyduedateHtml %}
+    {{ govukDateInput({
+      id: "month-only-due-date",
+      namePrefix: "month-only-due-date",
+      fieldset: {
+        legend: {
+          text: ""
+        }
+      },
+      items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+    }) }}
+    {% endset -%}
+
+
+    {{ govukRadios({
+      name: "due-date",
+      fieldset: {
+        legend: {
+          text: "Due date",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Choose the level of detail you have about the date that school business professionals must finish the task by."
+      },
+      items: [
+        {
+          value: "Exact due date",
+          text: "Exact due date",
+          conditional: {
+            html: exactduedateHtml
+          }
+        },
+        {
+          value: "Month only",
+          text: "Month only",
+          conditional: {
+            html: monthonlyduedateHtml
+          }
+        },
+        {
+          value: "No due date",
+          text: "No due date"
+        }
+      ]
+    }) }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

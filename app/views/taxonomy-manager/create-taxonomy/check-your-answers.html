@@ -1,0 +1,442 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Check your answers before creating taxonomy</h1>
+
+    <form class="form" action="../publish-or-draft-taxonomy" method="post">
+
+      {% if data['add-tags-now'] == "No" %}
+
+      <dl class="govuk-summary-list">
+        {% if data['selectParentTaxonomy'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parent taxonomy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['selectParentTaxonomy'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+          </div>
+          {% endif %}
+
+          {% if data['selectParentTag'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parent tag
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['selectParentTag'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+          </div>
+          {% endif %}
+
+          {% if data['parent-taxonomy-name'] %}
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+         </div>
+         {% endif %}
+
+         {% if data['child-taxonomy-name'] %}
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['child-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+         </div>
+         {% endif %}
+
+         {% if data['child-taxonomy-hint'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['child-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parent-taxonomy-hint'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentTaxonomyLocation'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentTaxonomyRequirement'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['childTaxonomyRequirement'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Create taxonomy",
+          href: "../new-taxonomy-draft"
+        }) }}
+  
+        {{ govukButton({
+          text: "Save and finish later",
+          classes: "govuk-button--secondary",
+          name: "save",
+          value: "true"
+        }) }}
+      
+        <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+      </div>
+
+      {% else %}
+
+      <dl class="govuk-summary-list">
+        {% if data['selectParentTaxonomy'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parent taxonomy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['selectParentTaxonomy'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+          </div>
+          {% endif %}
+
+          {% if data['selectParentTag'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parent tag
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['selectParentTag'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+          </div>
+          {% endif %}
+
+          {% if data['parent-child-taxonomy'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Child taxonomy
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-child-taxonomy'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+          </div>
+          {% endif %}
+
+          {% if data['parent-taxonomy-name'] %} 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['child-taxonomy-name'] %} 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['child-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['child-taxonomy-hint'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['child-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parent-taxonomy-hint'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+        
+        {% if data['parentTaxonomyLocation'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentSubtaskLocation'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentSubtaskLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['childSubtaskLocation'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Subtask location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childSubtaskLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentTaxonomyRequirement'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['childTaxonomyRequirement'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentInputType'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Input type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentInputType'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+        
+        {% if data['childInputType'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Input type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childInputType'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentAlternativeOption'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Alternative option
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentAlternativeOption'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['childAlternativeOption'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Alternative option
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childAlternativeOption'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['childTagValues'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Values
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childTagValues'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+
+        {% if data['parentTagValues'] %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Values
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTagValues'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Create taxonomy",
+          href: "../new-taxonomy"
+        }) }}
+  
+        {{ govukButton({
+          text: "Save and finish later",
+          classes: "govuk-button--secondary",
+          href: "../new-taxonomy-draft"
+        }) }}
+      
+        <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+      </div>
+
+  
+    {% endif %}
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

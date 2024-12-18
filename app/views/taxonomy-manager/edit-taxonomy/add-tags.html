@@ -1,0 +1,157 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+
+<form action="check-your-answers" method="post">
+
+  <span class="govuk-caption-l">{{ data['parent-taxonomy-name'] }} parent taxonomy</span>
+<h1 class="govuk-heading-l">Add tags</h1>
+
+{{ govukRadios({
+  name: "parent-radio-or-checkbox",
+  fieldset: {
+    legend: {
+      text: "Input type",
+      isPageHeading: fales,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want the option to select more than one tag."
+  },
+  items: [
+    {
+      value: "Radios",
+      text: "Radios",
+      hint: {
+        text: "This means that you can only choose one tag."
+      }
+    },
+    {
+      value: "Checkboxes",
+      text: "Checkboxes",
+      hint: {
+        text: "This means that you can choose several tags."
+      },
+      checked: "true"
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "parent-alternative-option",
+  fieldset: {
+    legend: {
+      text: "Alternative option",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want an alternative ‘or’ statement for the checkboxes."
+  },
+  items: [
+    {
+      value: "All",
+      text: "All",
+      hint: {
+        text: "Give an option to select ‘all’ checkboxes instead."
+      }
+    },
+    {
+      value: "Do not know",
+      text: "Do not know",
+      hint: {
+        text: "Give an option to select ‘do not know’ instead."
+      },
+      checked: "true"
+    },
+    {
+      value: "None",
+      text: "None",
+      hint: {
+        text: "Do not display an ‘or’ option."
+      }
+    }
+  ]
+}) }}
+
+<h3 class="govuk-heading-m">Tag values</h3>
+<p>Create or edit the tag values for this taxonomy.</p>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-half">Name</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Database term</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Child taxonomies</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Apply for something</th>
+      <td class="govuk-table__cell">#application</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Create a policy</th>
+      <td class="govuk-table__cell">#policy</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Create or publish a report</th>
+      <td class="govuk-table__cell">#report</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Data return</th>
+      <td class="govuk-table__cell">#data_return</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Review</th>
+      <td class="govuk-table__cell">#review</td>
+      <td class="govuk-table__cell">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="govuk-button-group">
+{{ govukButton({
+  text: "Add another tag value",
+  classes: "govuk-button--secondary",
+  href: "add-tag-value"
+}) }}
+
+{{ govukButton({
+  text: "Reorder list",
+  classes: "govuk-button--secondary",
+  href: ""
+}) }}
+</div>
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Confirm updates and go back to taxonomy"
+  }) }}
+
+  {{ govukButton({
+    text: "Save and finish later",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+

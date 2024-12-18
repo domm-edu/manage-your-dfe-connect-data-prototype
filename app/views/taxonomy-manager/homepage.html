@@ -1,0 +1,229 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set headerActive = "home" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    {{ mojPageHeaderActions({
+      heading: {
+        text: 'Manage your DfE Connect data',
+        classes: 'govuk-heading-l'
+      },
+      items: [{
+        text: 'Create a task',
+        classes: 'govuk-button--secondary'
+      }, {
+        text: 'Add a service',
+        classes: 'govuk-button--secondary'
+      }]
+    }) }}
+
+    <nav class="app-sub-navigation govuk-!-margin-bottom-4" aria-label="Sub navigation">
+      <ul class="app-sub-navigation__list">
+
+            <li class="app-sub-navigation__item">
+              <a class="app-sub-navigation__link" aria-current="page" href="homepage">Recently edited tasks</a>
+            </li>
+    
+            <li class="app-sub-navigation__item">
+              <a class="app-sub-navigation__link" href="/record/3c40a29b-a747-42e8-90f0-d76040e12ff0/personal-details">Recently published tasks</a>
+            </li>
+        </ul>
+    </nav>
+    
+
+
+    <h2 class="govuk-heading-m">Recently edited tasks</h2>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Task name"
+        },
+        {
+          text: "Service"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Updates to Academy Trust handbook come into effect</a>'
+          },
+          {
+            text: "National Tutoring Programme"
+          },
+          {
+            text: "No start date"
+          },
+          {
+            text: "20 Mar 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Accounts return form is now available</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "24 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Universal free school meals payments</a>'
+          },
+          {
+            text: "Universal infant free school meals"
+          },
+          {
+            text: "1 Sep 2024"
+          },
+          {
+            text: "19 Mar 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">National Tutoring Programme (NTP) funding</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "1 Oct 2024"
+          },
+          {
+            text: "30 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Land and buildings collection tool (LBCT)</a>'
+          },
+          {
+            text: "Academies land and buildings collection"
+          },
+          {
+            text: "No start date"
+          },
+          {
+            text: "25 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Accounts return form is now available</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "Sep 2024"
+          },
+          {
+            text: "24 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Initial Teacher Training (ITT) funding</a>'
+          },
+          {
+            text: "Initial Teacher Training"
+          },
+          {
+            text: "1 Sep 2024"
+          },
+          {
+            text: "4 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">General Annual Grant</a>'
+          },
+          {
+            text: "General Annual Grant"
+          },
+          {
+            text: "1 Oct 2024"
+          },
+          {
+            text: "3 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census</a>'
+          },
+          {
+            text: "COLLECT"
+          },
+          {
+            text: "1 Sep 2024"
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Child protection and safeguarding policy</a>'
+          },
+          {
+            text: "Academies accounts return"
+          },
+          {
+            text: "1 Oct 2024"
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ]
+      ]
+    }) }}
+
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
+    
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,244 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-l">Your requests</h1>
+
+    <p>Check the status of your updates to new or existing tasks or services.</p>
+
+    <h2 class="govuk-heading-m">Your pending requests</h2>
+
+    <p>Pending requests for new tasks or changes made by you or a member of your team.</p>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Month you apply</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Title</th>
+          <th scope="col" class="govuk-table__header">Type of request</th>
+          <th scope="col" class="govuk-table__header">Requested by</th>
+          <th scope="col" class="govuk-table__header">Requested on</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% if data['task-start-date'] %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">{{ data['subtaskName'] }}</a></th>
+          <td class="govuk-table__cell">New</td>
+          <td class="govuk-table__cell">Joe Smith</td>
+          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+        </tr>
+        {% endif %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Complete your autumn school census return</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Adam Neville</td>
+          <td class="govuk-table__cell">23 Oct 2024</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">School census guidance updated	</a></th>
+          <td class="govuk-table__cell">New</td>
+          <td class="govuk-table__cell">Lucy Johnson</td>
+          <td class="govuk-table__cell">21 Oct 2024</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Read the latest on school census data and submission timelines</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Sam O'Connor</td>
+          <td class="govuk-table__cell">21 Oct 2024</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Workforce census</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Lucy Johnson</td>
+          <td class="govuk-table__cell">19 Oct 2024</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type of request"
+        },
+        {
+          text: "Requested by"
+        },
+        {
+          text: "Requested on"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">Complete your autumn school census return</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Adam Neville"
+          },
+          {
+            text: "23 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Sam O'Connor"
+          },
+          {
+            text: "22 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "Lucy Johnson"
+          },
+          {
+            text: "21 Oct 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">Previously approved requests</h2>
+
+    <p>Approved requests for new tasks or changes made by you or a member of your team.</p>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Title"
+        },
+        {
+          text: "Type of request"
+        },
+        {
+          text: "Approved on"
+        },
+        {
+          text: "Publish date"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="">School census guidance updated</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "19 Oct 2024"
+          },
+          {
+            text: "30 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Submit your school census data</a>'
+          },
+          {
+            text: "New"
+          },
+          {
+            text: "15 Oct 2024"
+          },
+          {
+            text: "15 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on workforce census submissions</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "2 Oct 2024"
+          },
+          {
+            text: "4 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Review updated guidance for workforce census</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "28 Sep 2024"
+          },
+          {
+            text: "28 Sep 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read new school census information</a>'
+          },
+          {
+            text: "Change"
+          },
+          {
+            text: "15 Aug 2024"
+          },
+          {
+            text: "22 Aug 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,234 @@
+{% extends "layouts/_CHILD-TAXONOMY.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set taxonomyType = "Child taxonomy" %}
+{% set pageHeading = "Funding aims" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Overview"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          html: "Funding aims"
+        }
+      },
+      {
+        key: {
+          text: "Hint text"
+        },
+        value: {
+          html: "Choose the main aim of this fund."
+        }
+      },
+      {
+        key: {
+          text: "Requirement"
+        },
+        value: {
+          html: "Mandatory"
+        }
+      },
+      {
+        key: {
+          text: "Parent taxonomy"
+        },
+        value: {
+          html: '<a href="../categories">Categories</a>'
+        }
+      },
+      {
+        key: {
+          text: "Parent tag"
+        },
+        value: {
+          html: '<a href="funding">Funding</a>'
+        }
+      }
+    ]
+  }) }}
+  
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Input options"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Type"
+        },
+        value: {
+          html: "Checkboxes"
+        }
+      },
+      {
+        key: {
+          text: "Alternative option"
+        },
+        value: {
+          html: "None"
+        }
+      }
+    ]
+  }) }}
+
+<h2 class="govuk-heading-m">Tag values</h2>
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  classes: "govuk-table--small-text-until-tablet",
+  head: [
+    {
+      text: "Tag name"
+    },
+    {
+      text: "Database term"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="">Capital projects</a>'
+      },
+      {
+        text: "#capital_projects"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">High needs pupils</a>'
+      },
+      {
+        text: "#high_needs"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">School food</a>'
+      },
+      {
+        text: "#school_food"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">School ops</a>'
+      },
+      {
+        text: "#school_ops"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">Student improvement</a>'
+      },
+      {
+        text: "#student_improvement"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">Teach development</a>'
+      },
+      {
+        text: "#teacher_development"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">Technical projects</a>'
+      },
+      {
+        text: "#technical_projects"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add a tag value",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,149 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Request reference: TP532094</span>
+    <h1 class="govuk-heading-l">New task for School Census</h1>
+
+    <div class="govuk-button-group">
+    <strong class="govuk-tag govuk-tag--pink">
+      Pending
+    </strong>
+    <a class="govuk-link" href="cancel-request" style="margin-left: 15px;">Cancel request</a>
+  </div>
+
+    <p>Requested by Amit Basile at 3.20 pm on 6 Jan 2025.</p>
+
+    <h2 class="govuk-heading-m">Task information</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "DfE Connect page name"
+          },
+          value: {
+            text: "School census"
+          }
+        },
+        {
+          key: {
+            text: "Task name"
+          },
+          value: {
+            text: "Check the school census guidance for any changes"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "No description added"
+          }
+        },
+        {
+          key: {
+            text: "Team"
+          },
+          value: {
+            text: "School census"
+          }
+        },
+        {
+          key: {
+            text: "Link"
+          },
+          value: {
+            html: '<a href="www.collect.gov.uk">www.collect.gov.uk</a>'
+          }
+        },
+        {
+          key: {
+            text: "Requirement"
+          },
+          value: {
+            html: "Mandatory"
+          }
+        },
+        {
+          key: {
+            text: "Activity details"
+          },
+          value: {
+            html: "Review data or guidance, Create efficiency"
+          }
+        },
+        {
+          key: {
+            text: "Audience details"
+          },
+          value: {
+            html: "Primary, Secondary, Academy, Communities, Free school"
+          }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            html: 'Jan 2021'
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: '31 Dec 2025'
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Publish and review details</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Publish date"
+          },
+          value: {
+            text: "As soon as possible "
+          }
+        },
+        {
+          key: {
+            text: "Urgency"
+          },
+          value: {
+            text: "Urgent. This is time critical to align with GOV.UK guidance"
+          }
+        },
+        {
+          key: {
+            text: "Review comments"
+          },
+          value: {
+            html: "No comments added"
+          }
+        }
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>We’ll email you to confirm your page is live on DfE Connect or to ask for more information.</p>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,85 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <form class="form" action="comments" method="post">
+
+
+      {% set otherHtml %}
+      {{ govukInput({
+        id: "other-urgent-request",
+        name: "other-urgent-request",
+        spellcheck: false,
+        classes: "govuk-!-width-two-thirds",
+        label: {
+          text: "Enter why the request is urgent "
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        name: "why-urgent",
+        fieldset: {
+          legend: {
+            text: "Why is the request urgent?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "Politically sensitive",
+            text: "Politically sensitive"
+          },
+          {
+            value: "Deputy Director request",
+            text: "Deputy Director request"
+          },
+          {
+            value: "Incorrect information shown",
+            text: "Incorrect information shown"
+          },
+          {
+            value: "Other",
+            text: "Other",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      }) }}
+
+     
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

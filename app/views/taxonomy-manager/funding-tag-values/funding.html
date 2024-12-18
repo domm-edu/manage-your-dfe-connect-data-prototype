@@ -1,0 +1,129 @@
+{% extends "layouts/_TAG-VALUE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set tagType = "Tag" %}
+{% set pageHeading = "Funding" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Funding aims"
+      }
+    },
+    {
+      key: {
+        text: "Hint text"
+      },
+      value: {
+        html: "Choose the main aim of this fund."
+      }
+    },
+    {
+      key: {
+        text: "Part of taxonomy"
+      },
+      value: {
+        html: "Categories"
+      },
+      actions: {
+        items: [
+          {
+            href: "../categories",
+            text: "View",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Child taxonomies</h2>
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  classes: "govuk-table--small-text-until-tablet",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Input type"
+    },
+    {
+      text: "Requirement"
+    },
+    {
+      text: "Values"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="funding-aims">Funding aims</a>'
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: 'Checkboxes'
+      },
+      {
+        html: 'Mandatory'
+      },
+      {
+        html: '7'
+      }
+    ],
+    [
+      {
+        html: '<a href="funding-methods">Funding methods</a>'
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: 'Checkboxes'
+      },
+      {
+        html: 'Mandatory'
+      },
+      {
+        html: '2'
+      }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add a child taxonomy",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

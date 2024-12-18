@@ -1,0 +1,112 @@
+{% set serviceName = "Manage your DfE Connect data" %}
+
+{% extends "layouts/main.html" %}
+
+{% block header %}  
+
+<header class="dfe-header" role="banner">
+  <div class="govuk-width-container dfe-header__container">
+     <div class="dfe-header__logo">
+        <a class="dfe-header__link" href="/" aria-label="DfE homepage">
+        <img src="/public/images/dfe-logo.png" class="dfe-logo" alt="Department for Education">
+        <img src="/public/images/dfe-logo-alt.png" class="dfe-logo-hover" alt="Department for Education">
+        </a>
+     </div>
+     <div class="dfe-header__content" id="content-header">
+        <ul class="dfe-header__action-links">
+           <li>
+              <a href="power-bi" class="govuk-link govuk-link--inverse">Power BI</a>
+           </li>
+           <li>
+              <a href="sign-out" class="govuk-link govuk-link--inverse">Sign out</a>
+           </li>
+        </ul>
+        <div class="dfe-header__menu">
+           <button class="dfe-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-expanded="false">Menu</button>
+        </div>
+        </div>
+     </div>
+  </div>
+  <div class="govuk-width-container dfe-header__service-name">
+     <a href="/" class="dfe-header__link--service">Manage your DfE Connect data</a>
+  </div>
+  <nav class="dfe-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+     <div class="govuk-width-container">
+        <p class="dfe-header__navigation-title">
+           <span id="label-navigation">
+              Menu
+        <div id="extwaiokist" style="display:none" v="bmmch" q="f0ae2e3d" c="594.5" i="601" u="0.751" s="04272401" sg="svr_09102316-ga_04272401-bai_04252415" d="1" w="false" e="}" a="2" m="BMe=" vn="9colr"><div id="extwaigglbit" style="display:none" v="bmmch" q="f0ae2e3d" c="594.5" i="601" u="0.751" s="04272401" sg="svr_09102316-ga_04272401-bai_04252415" d="1" w="false" e="}" a="2" m="BMe="></div></div></span>
+        <button class="dfe-header__navigation-close" id="close-menu">
+           <svg class="dfe-icon dfe-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+              <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+           </svg>
+           <span class="govuk-visually-hidden">Close menu</span>
+        </button>
+        </p>
+        <ul class="dfe-header__navigation-list">
+            <li class="dfe-header__navigation-item {% if headerActive == 'home' %}dfe-header__navigation-item--current{% endif %}">
+              <a class="dfe-header__navigation-link" href="homepage">
+                 Home
+                 <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                    <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                 </svg>
+              </a>
+           </li>
+           <li class="dfe-header__navigation-item {% if headerActive == 'tasks' %}dfe-header__navigation-item--current{% endif %}">
+              <a class="dfe-header__navigation-link" href="tasks">
+                 Tasks
+                 <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                    <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                 </svg>
+              </a>
+           </li>
+           <li class="dfe-header__navigation-item {% if headerActive == 'services' %}dfe-header__navigation-item--current{% endif %}">
+              <a class="dfe-header__navigation-link" href="services">
+                 Services
+                 <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                    <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+                 </svg>
+              </a>
+           </li>
+           <li class="dfe-header__navigation-item {% if headerActive == 'taxonomies' %}dfe-header__navigation-item--current{% endif %}">
+            <a class="dfe-header__navigation-link" href="taxonomies">
+               Taxonomies
+               <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+               </svg>
+            </a>
+         </li>
+         <li class="dfe-header__navigation-item {% if headerActive == 'requests' %}dfe-header__navigation-item--current{% endif %}">
+            <a class="dfe-header__navigation-link" href="requests">
+               Requests
+               <svg class="dfe-icon dfe-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                  <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+               </svg>
+            </a>
+         </li>
+        </ul>
+     </div>
+  </nav>
+</header>
+
+{% endblock %}    
+
+{% block beforeContent %}
+{{ govukPhaseBanner({  tag: {    text: "Beta"  },  html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.'}) }}
+ 
+
+{% if back %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endif %}
+{% endblock %}  
+
+{% block content %}
+<div class="govuk-grid-row"> 
+<div class="govuk-grid-column-two-thirds">  
+<!-- start of service specific block -->
+{% block service %}
+Text goes here, override this by overriding the block
+{% endblock %}
+<!-- end service specific block-->
+</div>
+{% endblock %}    

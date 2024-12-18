@@ -1,0 +1,168 @@
+{% extends "layouts/_CHILD-TAXONOMY.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set taxonomyType = "Child taxonomy" %}
+{% set pageHeading = "Funding methods" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Overview"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Name"
+        },
+        value: {
+          html: "Funding methods"
+        }
+      },
+      {
+        key: {
+          text: "Hint text"
+        },
+        value: {
+          html: "Choose the main method of this fund."
+        }
+      },
+      {
+        key: {
+          text: "Requirement"
+        },
+        value: {
+          html: "Mandatory"
+        }
+      },
+      {
+        key: {
+          text: "Parent taxonomy"
+        },
+        value: {
+          html: 'Categories'
+        },
+        actions: {
+          items: [
+            {
+              href: "../categories",
+              text: "View",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Parent tag"
+        },
+        value: {
+          html: 'Funding'
+        },
+        actions: {
+          items: [
+            {
+              href: "funding",
+              text: "View",
+              visuallyHiddenText: "name"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+  
+  {{ govukSummaryList({
+    card: {
+      title: {
+        text: "Input options"
+      }
+    },
+    rows: [
+      {
+        key: {
+          text: "Type"
+        },
+        value: {
+          html: "Checkboxes"
+        }
+      },
+      {
+        key: {
+          text: "Alternative option"
+        },
+        value: {
+          html: "None"
+        }
+      }
+    ]
+  }) }}
+
+<h2 class="govuk-heading-m">Tag values</h2>
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  classes: "govuk-table--small-text-until-tablet",
+  head: [
+    {
+      text: "Tag name"
+    },
+    {
+      text: "Database term"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="../funding-methods-tag-values/available-entitlements">Available entitlements</a>' 
+      },
+      {
+        text: "#entitled_fund"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="">Getting more funding</a>'
+      },
+      {
+        text: "#additional_funding"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add a tag value",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}

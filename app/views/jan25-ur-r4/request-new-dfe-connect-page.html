@@ -1,0 +1,148 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Request reference: FL184927</span>
+    <h1 class="govuk-heading-l">New DfE Connect page</h1>
+
+    <div class="govuk-button-group">
+    <strong class="govuk-tag govuk-tag--pink">
+      Pending
+    </strong>
+    <a class="govuk-link" href="cancel-request" style="margin-left: 15px;">Cancel request</a>
+  </div>
+
+    <p>Requested by Lucy O'Connor at 10.15 am on 6 Jan 2025.</p>
+
+    <h2 class="govuk-heading-m">DfE Connect page information</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "DfE Connect page name"
+          },
+          value: {
+            text: "Workforce census"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Do not wait until the deadline. You should complete your workforce census as soon as possible."
+          }
+        },
+        {
+          key: {
+            text: "Category"
+          },
+          value: {
+            html: "Pupils, Compliance"
+          }
+        },
+        {
+          key: {
+            text: "Team"
+          },
+          value: {
+            html: 'Workforce census'
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Tasks</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Submit your workforce census data to us before the deadline"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "View task",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            text: "Apr 2025"
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: "30 May 2025"
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Review the changes to workforce census guidamce"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "View task",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            text: "Jan 2025"
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: "Jun 2025"
+          }
+        }
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>We’ll email you to confirm your page is live on DfE Connect or to ask for more information.</p>
+
+
+{% endblock %}
+
+
+

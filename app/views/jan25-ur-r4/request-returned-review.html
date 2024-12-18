@@ -1,0 +1,39 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Request reference: RT662081</span>
+    <h1 class="govuk-heading-l">New task for School Census</h1>
+
+    <div class="govuk-button-group">
+    <strong class="govuk-tag govuk-tag--red">
+      Returned
+    </strong>
+    <a class="govuk-link" href="request-autumn-census" style="margin-left: 15px;">View request details</a>
+  </div>
+
+    <p>Requested by Harold Smith at 2.10 pm on 7 Jan 2025.</p>
+
+    <h2 class="govuk-heading-m">Review outcome</h2>
+    <p>The request for a new task, Amend your autumn school census data, if needed, was returned on 22 November 2024.</p>
+    <p>Reason for returned request: [reason selected here].</p>
+    <p>Additional comments about your request: [comments go here].</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>Our DfE content team will email you regarding your request to resolve any outstanding issues.</p>
+    <p>You can remove your request. Removing your request will delete it.</p>
+
+    {{ govukButton({
+      text: "Remove request",
+      href: "remove-request"
+    }) }}
+{% endblock %}
+
+
+

@@ -1,0 +1,7 @@
+[
+    {
+    "name" : "Apply for something",
+    "term" : "#application",
+    "parent" : "Activity"
+    }
+]

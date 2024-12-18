@@ -1,0 +1,87 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+<form action="select-parent-child-taxonomy" method="post">
+
+  {{ govukCheckboxes({
+    name: "selectParentTag",
+    fieldset: {
+      legend: {
+        text: "Choose a parent tag for the child taxonomy",
+        isPageHeading: true,
+        classes: "govuk-heading-l"
+      }
+    },
+    items: [
+      {
+        value: "All tags in the taxonomy",
+        text: "All tags in the taxonomy"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "Academy trust handbook",
+        text: "Academy trust handbook"
+      },
+      {
+        value: "Buildings",
+        text: "Buildings"
+      },
+      {
+        value: "Compliance",
+        text: "Compliance"
+      },
+      {
+        value: "Finance",
+        text: "Finance"
+      },
+      {
+        value: "Funding",
+        text: "Funding"
+      },
+      {
+        value: "Governance",
+        text: "Governance"
+      },
+      {
+        value: "Intervention",
+        text: "Intervention"
+      },
+      {
+        value: "Learning and development",
+        text: "Learning and development"
+      },
+      {
+        value: "Pupils",
+        text: "Pupils"
+      }
+    ]
+  }) }}
+  
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  {{ govukButton({
+    text: "Save as draft",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,115 @@
+{% extends "layouts/_TAG-VALUE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set tagType = "Tag" %}
+{% set pageHeading = "Apply for something" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+<!-- 
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Status",
+      classes: "govuk-!-width-one-quarter"
+    },
+    {
+      text: "Actions",
+      classes: "govuk-!-width-one-quarter"
+    },
+    {
+      text: "Last updated",
+      classes: "govuk-!-width-one-quarter"
+    },
+    {
+      text: "Audit trail",
+      classes: "govuk-!-width-one-quarter"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<p style="margin-bottom: 15px;"><a href="../edit-tag/edit-tag-value?myURLdata=Apply for something&name=Apply for something&term=apply">Edit tag</a></p><p style="margin-bottom: 5px;"><a href="edit-task-1">Archive tag</a></p>'
+      },
+      {
+        text: "13 Oct 2024"
+      },
+      {
+        html: '<a href="">View history</a>'
+      }
+    ]
+  ]
+}) }}
+
+-->
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Apply for something",
+        name: 'tag-name'
+      }
+    },
+    {
+      key: {
+        text: "Database term"
+      },
+      value: {
+        html: "#application"
+      }
+    },
+    {
+      key: {
+        text: "Part of taxonomy"
+      },
+      value: {
+        html: "Activity"
+      },
+      actions: {
+        items: [
+          {
+            href: "../activity",
+            text: "View",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Child taxonomies</h2>
+
+<p>There are no child taxonomies for this tag.</p>
+
+{{ govukButton({
+  text: "Add a child taxonomy",
+  classes: "govuk-button--secondary",
+  href: "../create-taxonomy/create-child"
+}) }}
+
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,280 @@
+{% set serviceName = "Manage your DfE Connect data" %}
+
+{% extends "layouts/_SU-BASE.html" %}  
+
+{% block beforeContent %}
+{{ govukPhaseBanner({  tag: {    text: "Beta"  },  html: 'This is a new service. Help us improve it and <a class="govuk-link" href="#">give your feedback by email</a>.'}) }}
+  
+{% if back %}
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+{% endif %}
+{% endblock %}  
+
+{% block content %}
+<div class="govuk-grid-row"> 
+<div class="govuk-grid-column-full">  
+
+  {% if newArchiveTaxonomy %}
+
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You’ve saved [taxonomy name] as a draft 
+      </h3>
+      <p class="govuk-body">You can view, update or publish [taxonomy name] when you need to.</p>
+    </div>
+  </div>
+
+  {% endif %}
+
+  {% if newTaxonomy %}
+
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+    <div class="govuk-notification-banner__header">
+      <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+        Success
+      </h2>
+    </div>
+    <div class="govuk-notification-banner__content">
+      <h3 class="govuk-notification-banner__heading">
+        You’ve published [taxonomy name] taxonomy
+      </h3>
+      <p class="govuk-body">You can now view and use this taxonomy for [taxonomy location].</p>
+    </div>
+  </div>
+
+  {% endif %}
+
+    <span class="govuk-caption-l">{{ taxonomyType }}</span>
+    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+    {% if draft %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--yellow">
+              Draft
+            </strong>'
+          },
+          {
+            html: '<p style="margin-bottom: 15px;"><a href="edit-taxonomy/edit-taxonomy">Edit taxonomy</a></p><p style="margin-bottom: 5px;"><a href="edit-task-1">Archive taxonomy</a></p>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {% elseif active %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            html: '<p style="margin-bottom: 15px;"><a href="edit-taxonomy/edit-taxonomy">Edit taxonomy</a></p><p style="margin-bottom: 5px;"><a href="edit-task-1">Archive taxonomy</a></p>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {% elseif archived %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--red">
+              Archived
+            </strong>'
+          },
+          {
+            html: '<a href="edit-task-1">Request a change</a>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {% elseif decomissioned %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--red">
+                Decomissioned
+            </strong>'
+          },
+          {
+            html: '<a href="edit-task-1">Request a change</a>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {% elseif queued %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<strong class="govuk-tag govuk-tag--blue">
+                Queued
+            </strong>'
+          },
+          {
+            html: '<a href="edit-task-1">Request a change</a>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+{% endif %}
+  
+
+
+<!-- start of service specific block -->
+{% block service %}
+Text goes here, override this by overriding the block
+{% endblock %}
+<!-- end service specific block-->
+</div>
+{% endblock %}    

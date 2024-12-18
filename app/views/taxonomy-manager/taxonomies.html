@@ -1,0 +1,301 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set headerActive = "taxonomies" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    {{ mojPageHeaderActions({
+      heading: {
+        text: 'Taxonomies',
+        classes: 'govuk-heading-l'
+      },
+      items: [{
+        text: 'Create a taxonomy',
+        classes: 'govuk-button--secondary',
+        href: 'create-taxonomy/choose-level'
+      }, 
+      {
+        text: 'Show filters',
+        classes: 'govuk-link govuk-link__filter'
+      }
+      ]
+    }) }}
+  
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Taxonomy name"
+        },
+        {
+          text: "Level"
+        },
+        {
+          text: "Location"
+        },
+        {
+          text: "Requirement"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="activity">Activity</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "19 Apr 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="categories">Categories</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Task"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "24 Apr 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Funding aim</a>'
+          },
+          {
+            text: "Child"
+          },
+          {
+            text: "Task"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Funding type</a>'
+          },
+          {
+            text: "Child"
+          },
+          {
+            text: "Task"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Further institution types</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Institution types</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "2 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Phase of education</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "14 Feb 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Purpose</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "30 Mar 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Resource categories</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Resources"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "21 Apr 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Requirement</a>'
+          },
+          {
+            text: "Parent"
+          },
+          {
+            text: "Subtask"
+          },
+          {
+            text: "Mandatory"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "21 Apr 2024"
+          }
+        ]
+      ]
+    }) }}
+
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
+    
+
+
+{% endblock %}
+
+
+

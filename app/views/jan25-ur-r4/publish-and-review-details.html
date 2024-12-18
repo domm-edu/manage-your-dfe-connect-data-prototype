@@ -1,0 +1,118 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Publish and review details</h1>
+
+    <form class="form" action="urgent-request" method="post">
+      
+      <p>You have made a new task that must be reviewed by the DfE Connect content team.</p>
+
+      {% set exactstartHtml %}
+{{ govukDateInput({
+  id: "exact-start-date",
+  namePrefix: "exact-start-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set specificDateHtml %}
+{{ govukDateInput({
+  id: "specific-publish-date",
+  namePrefix: "specific-publish-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  items: [
+  {
+    classes: "govuk-input--width-2",
+    name: "day"
+  },{
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "publish-task-date",
+  fieldset: {
+    legend: {
+      text: "When would you like us to publish this task?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "We'll publish or schedule to publish the task once we have reviewed your task."
+  },
+  items: [
+    {
+      value: "As soon as possible",
+      text: "As soon as possible"
+    },
+    {
+      value: "specific",
+      text: "Specific date",
+      conditional: {
+        html: specificDateHtml
+      }
+    }
+  ]
+}) }}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

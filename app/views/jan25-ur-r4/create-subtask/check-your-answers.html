@@ -1,0 +1,265 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Check your answers before sending for review</h1>
+
+    <form class="form" action="success" method="post">
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Task name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['subtaskName'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['task-description'] or "No description added" }}
+          </dd>
+          {% if data['task-description'] %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+          {% else %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+          {% endif %}
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Team
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['subTaskTeam'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Link
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['subTaskLink'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['requirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> requirement</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Transactional
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['transactionalsubTask'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> transactional</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Size
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['insightstagSize'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> size</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Activity and purpose
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+            {% for a in data['tags-activity'] %}
+            {{a}},
+            {% endfor %}
+            {% for b in data['tags-purpose'] %}
+            {{b}},
+            {% endfor %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> insight tags</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Audience details
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+            {% for i in data['phase'] %}
+            {{i}},
+            {% endfor %}
+            {% for o in data['tags-institution-type'] %}
+            {{o}},
+            {% endfor %}
+            {% for u in data['insitution'] %}
+            {{u}},
+            {% endfor %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> audience tags</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+
+            {% if data['task-start-date'] == "Exact start date" %}
+
+            {{ data['exact-start-date-day'] }} {{ data['exact-start-date-month'] | monthName }} {{ data['exact-start-date-year']}}
+
+            {% elseif data['task-start-date'] == "Month only" %}
+
+            {{ data['month-only-start-date-day'] }} {{ data['month-only-start-date-month'] | monthName }} {{ data['month-only-start-date-year'] }}
+
+            {% else %}
+
+            No start date
+
+            {% endif %}
+
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> start date</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Due date
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+            {% if data['due-date'] == "Exact due date" %}
+
+            {{ data['exact-due-date-day'] }} {{ data['exact-due-date-month'] | monthName }} {{ data['exact-due-date-year'] }}
+
+            {% elseif data['due-date'] == "Month only" %}
+
+            {{ data['month-only-due-date-day'] }} {{ data['month-only-due-date-month'] | monthName }} {{ data['month-only-due-date-year'] }}
+
+            {% else %}
+
+            No due date
+
+            {% endif %}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> due date</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Publish and review details</h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Publish date
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+            {% if data['publish-task-date'] == "As soon as possible" %}
+            As soon as possible
+            {% else %}
+            {{ data['specific-publish-date-day'] }} {{ data['specific-publish-date-month'] | monthName }} {{ data['specific-publish-date-year'] }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+        </div>
+
+        {% if data['publish-task-date'] == "As soon as possible" %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Urgency of review
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['urgentRequest'] }}, {{ data['why-urgent'] }} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+        </div>
+
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Comments
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['commentsDetail'] or "No comments added" }}
+          </dd>
+          {% if data['commentsDetail'] %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+          {% else %}
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> comment</span></a>
+          </dd>
+          {% endif %}
+        </div>
+
+      </dl>
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Confirm and send for review"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

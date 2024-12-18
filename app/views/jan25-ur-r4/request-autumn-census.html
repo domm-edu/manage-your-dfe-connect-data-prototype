@@ -1,0 +1,128 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Request reference: RT662081</span>
+    <h1 class="govuk-heading-l">Request details</h1>
+
+    <h2 class="govuk-heading-m">Task information</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Task name"
+          },
+          value: {
+            text: "Amend your autumn school census data, if needed"
+          }
+        },
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            text: "Do not wait for the deadline."
+          }
+        },
+        {
+          key: {
+            text: "Team"
+          },
+          value: {
+            text: "Annual accounts service"
+          }
+        },
+        {
+          key: {
+            text: "Link"
+          },
+          value: {
+            html: '<a href="www.collect.gov.uk">www.collect.gov.uk</a>'
+          }
+        },
+        {
+          key: {
+            text: "Requirement"
+          },
+          value: {
+            html: "Mandatory"
+          }
+        },
+        {
+          key: {
+            text: "Activity details"
+          },
+          value: {
+            html: "Data return or submission, Review data or guidance, Create efficiency"
+          }
+        },
+        {
+          key: {
+            text: "Audience details"
+          },
+          value: {
+            html: "Primary, Academy, Communities, Free school"
+          }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            html: '1 Jan 2024'
+          }
+        },
+        {
+          key: {
+            text: "Due date"
+          },
+          value: {
+            html: '31 Dec 2024'
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Publish and review details</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Publish date"
+          },
+          value: {
+            text: "As soon as possible "
+          }
+        },
+        {
+          key: {
+            text: "Urgency"
+          },
+          value: {
+            text: "Urgent. This is time critical to align with GOV.UK guidance"
+          }
+        },
+        {
+          key: {
+            text: "Review comments"
+          },
+          value: {
+            html: "No comments added"
+          }
+        }
+      ]
+    }) }}
+
+
+{% endblock %}
+
+
+

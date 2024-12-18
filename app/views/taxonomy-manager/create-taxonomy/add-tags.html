@@ -1,0 +1,244 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+
+<form action="add-tag-value" method="post">
+
+  {% if data['child-taxonomy-name'] %}
+
+  <span class="govuk-caption-l">{{ data['child-taxonomy-name'] }} child taxonomy</span>
+<h1 class="govuk-heading-l">Add tags</h1>
+
+{{ govukRadios({
+  name: "childInputType",
+  fieldset: {
+    legend: {
+      text: "Input type",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want the option to select more than one tag."
+  },
+  items: [
+    {
+      value: "Radios",
+      text: "Radios",
+      hint: {
+        text: "This means that you can only choose one tag."
+      }
+    },
+    {
+      value: "Checkboxes",
+      text: "Checkboxes",
+      hint: {
+        text: "This means that you can choose several tags."
+      }
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "childAlternativeOption",
+  fieldset: {
+    legend: {
+      text: "Alternative option",
+      isPageHeading: fales,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want an alternative ‘or’ statement for the checkboxes."
+  },
+  items: [
+    {
+      value: "All",
+      text: "All",
+      hint: {
+        text: "Give an option to select ‘all’ checkboxes instead."
+      }
+    },
+    {
+      value: "Do not know",
+      text: "Do not know",
+      hint: {
+        text: "Give an option to select ‘do not know’ instead."
+      }
+    },
+    {
+      value: "None",
+      text: "None",
+      hint: {
+        text: "Do not display an ‘or’ option."
+      }
+    }
+  ]
+}) }}
+
+<table class="govuk-table" id="tags-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Tag values</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-half">File</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Database term</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Child taxonomies</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    </tr>
+  </tbody>
+</table>
+
+<table id="tags-table"> <thead> <tr> <th>Name</th> <th>Database Term</th> </tr> </thead> <tbody> <!-- Tags will be added here dynamically --> </tbody> </table>
+
+
+{{ govukButton({
+  text: "Add tag value",
+  classes: "govuk-button--secondary",
+  href: "add-tag-value"
+}) }}
+
+
+  {% elseif data['parent-taxonomy-name'] %}
+
+  <span class="govuk-caption-l">{{ data['parent-taxonomy-name'] }} parent taxonomy</span>
+<h1 class="govuk-heading-l">Add tags</h1>
+
+{{ govukRadios({
+  name: "parentInputType",
+  fieldset: {
+    legend: {
+      text: "Input type",
+      isPageHeading: fales,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want the option to select more than one tag."
+  },
+  items: [
+    {
+      value: "Radios",
+      text: "Radios",
+      hint: {
+        text: "This means that you can only choose one tag."
+      }
+    },
+    {
+      value: "Checkboxes",
+      text: "Checkboxes",
+      hint: {
+        text: "This means that you can choose several tags."
+      }
+    }
+  ]
+}) }}
+
+{{ govukRadios({
+  name: "parentAlternativeOption",
+  fieldset: {
+    legend: {
+      text: "Alternative option",
+      isPageHeading: fales,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose if you want an alternative ‘or’ statement for the checkboxes."
+  },
+  items: [
+    {
+      value: "All",
+      text: "All",
+      hint: {
+        text: "Give an option to select ‘all’ checkboxes instead."
+      }
+    },
+    {
+      value: "Do not know",
+      text: "Do not know",
+      hint: {
+        text: "Give an option to select ‘do not know’ instead."
+      }
+    },
+    {
+      value: "None",
+      text: "None",
+      hint: {
+        text: "Do not display an ‘or’ option."
+      }
+    }
+  ]
+}) }}
+
+<table class="govuk-table" id="tags-table">
+  <caption class="govuk-table__caption govuk-table__caption--m">Tag values</caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-one-half">File</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Database term</th>
+      <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Child taxonomies</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+    </tr>
+  </tbody>
+</table>
+
+<table id="tags-table"> <thead> <tr> <th>Name</th> <th>Database Term</th> </tr> </thead> <tbody> <!-- Tags will be added here dynamically --> </tbody> </table>
+
+
+
+
+
+{{ govukButton({
+  text: "Add tag value",
+  classes: "govuk-button--secondary",
+  href: "add-tag-value"
+}) }}
+
+{% endif %}
+
+<script> 
+  async function loadTags() { 
+    const response = await fetch('add-tags1'); 
+    const tags = await response.json(); 
+    const tbody = document.getElementById('tags-table').querySelector('tbody'); tbody.innerHTML = ''; 
+    // Clear existing rows 
+    tags.forEach(tag => { 
+      const row = document.createElement('tr'); 
+      row.innerHTML = `<td>${tag.name}</td><td>${tag.term}</td>`; 
+      tbody.appendChild(row); }); 
+    } 
+    window.onload = loadTags; 
+      
+  </script>
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  {{ govukButton({
+    text: "Save as draft",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+

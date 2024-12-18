@@ -1,0 +1,256 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Add audience details</h1>
+
+    <form class="form" action="add-dates" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="phase-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            Phase of education
+          </legend>
+          <div id="phase-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="all-phases" name="phase" type="checkbox" value="All phases" onclick="toggle(this);">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                All phases
+              </label>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="all-through" name="phase" type="checkbox" value="All through">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                All through
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="mursery" name="phase" type="checkbox" value="Nursery">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Nursery
+              </label>
+            </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="primary" name="phase" type="checkbox" value="Primary">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Primary
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="middle-school" name="phase" type="checkbox" value="Middle school">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Middle school
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="middle-secondary" name="phase" type="checkbox" value="Middle secondary">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Middle secondary
+              </label>
+            </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="secondary" name="phase" type="checkbox" value="Secondary">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Secondary
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="16-to-19" name="phase" type="checkbox" value="16 to 19">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                16 to 19
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+
+      {{ govukCheckboxes({
+        name: "tags-institution-type",
+        fieldset: {
+          legend: {
+            text: "Institution type",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        hint: {
+          text: "Select all institutions that apply."
+        },
+        items: [
+          {
+            value: "Academy",
+            text: "Academy"
+          },
+          {
+            value: "Local authority maintained",
+            text: "Local authority maintained"
+          },
+          {
+            value: "Special school - academy",
+            text: "Special school - academy"
+          },
+          {
+            value: "Special school - local authority maintained",
+            text: "Special school - local authority maintained"
+          },
+          {
+            value: "Special school - non maintained",
+            text: "Special school - non maintained"
+          },
+          {
+            value: "Special school - independent",
+            text: "Special school - independent"
+          },
+          {
+            value: "Online",
+            text: "Online"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="phase-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            Further institution types
+          </legend>
+          <div id="phase-hint" class="govuk-hint">
+            Select all that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="all-institutions" name="institution" type="checkbox" value="All phases" onclick="toggle(this);">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                All institutions
+              </label>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="alternative-provision" name="institution" type="checkbox" value="Alternative provision">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Alternative provision
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="community" name="institution" type="checkbox" value="Community">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Community
+              </label>
+            </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="converter" name="institution" type="checkbox" value="Converter">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Converter
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="faith" name="institution" type="checkbox" value="Faith">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Faith
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="free-school" name="institution" type="checkbox" value="Free school">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                Free school
+              </label>
+            </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="independent" name="institution" type="checkbox" value="Independent">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Independent
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="sponsor-led" name="institution" type="checkbox" value="Sponsor led">
+              <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                Sponsor led
+              </label>
+            </div>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="studio-school" name="institution" type="checkbox" value="Studio school">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  Studio school
+                </label>
+              </div>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="university-technical-college" name="institution" type="checkbox" value="University technical college">
+                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                  University technical college
+                </label>
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="voluntary-aided" name="institution" type="checkbox" value="Voluntary aided">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Voluntary aided
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="other" name="institution" type="checkbox" value="Other">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                    Other
+                  </label>
+                </div>
+                </div>
+        
+        </fieldset>
+      </div>
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+
+ 
+
+  </form>
+      
+
+  <script language="JavaScript">
+    function toggle(source) {
+  checkboxes = document.getElementsByName('phase');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+
+function toggle(source) {
+  checkboxes = document.getElementsByName('institution');
+  for(var i=0, n=checkboxes.length;i<n;i++) {
+    checkboxes[i].checked = source.checked;
+  }
+}
+    </script>
+
+{% endblock %}
+
+
+

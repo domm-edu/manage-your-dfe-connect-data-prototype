@@ -1,0 +1,274 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Create a subtask</h1>
+
+    <form class="form" action="check-your-answers" method="post">
+
+    {{ govukInput({
+      label: {
+        text: "Subtask name",
+        classes: "govuk-fieldset__legend--s"
+      },
+      id: "subtask-name",
+      name: "subtaskName"
+    }) }}
+
+    {{ govukTextarea({
+      name: "task-description",
+      id: "task-description",
+      label: {
+        text: "Description (optional)",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        text: "Describe the subtask you are creating, if needed."
+      }
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Link (optional)",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        text: "Enter a link that takes school business professionals to where they can complete the task, if possible. "
+      },
+      id: "subTaskLink",
+      name: "subTaskLink"
+    }) }}
+
+
+    {{ govukRadios({
+      name: "requirement",
+      fieldset: {
+        legend: {
+          text: "Requirement",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "Mandatory",
+          text: "Mandatory",
+          hint: {
+            text: "School business professionals must complete this subtask."
+          }
+        },
+        {
+          value: "Conditional",
+          text: "Conditional",
+          hint: {
+            text: "School business professionals can only complete this subtask if they meet certain criteria or as a response to a situation."
+          }
+        },
+        {
+          value: "Optional",
+          text: "Optional",
+          hint: {
+            text: "School business professionals do not have to complete this subtask. It is best practice only."
+          }
+        }
+      ]
+    }) }}
+
+    <h3 class="govuk-heading-s">Tags</h3>
+
+    <div id="task-start-date-hint" class="govuk-hint">
+      Add tags to provide more detail for your subtask.
+    </div>
+
+    {{ govukButton({
+      text: "Add tags",
+      classes: "govuk-button--secondary",
+      href: "add-insight-tags"
+    }) }}
+
+    {% set exactstartHtml %}
+{{ govukDateInput({
+  id: "exact-start-date",
+  namePrefix: "exact-start-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  },
+  items: [
+    {
+      classes: "govuk-input--width-2",
+      name: "day"
+    },
+    {
+      classes: "govuk-input--width-2",
+      name: "month"
+    },
+    {
+      classes: "govuk-input--width-4",
+      name: "year"
+    }
+  ]
+}) }}
+{% endset -%}
+
+{% set monthonlyHtml %}
+{{ govukDateInput({
+  id: "exact-due-date",
+  namePrefix: "exact-due-date",
+  fieldset: {
+    legend: {
+      text: ""
+    }
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "task-start-date",
+  fieldset: {
+    legend: {
+      text: "Start date",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  hint: {
+    text: "Choose the level of detail you have about the date that school business professionals can begin the subtask."
+  },
+  items: [
+    {
+      value: "exact-start",
+      text: "Exact start date",
+      conditional: {
+        html: exactstartHtml
+      }
+    },
+    {
+      value: "month-only",
+      text: "Month only",
+      conditional: {
+        html: monthonlyHtml
+      }
+    },
+    {
+      value: "no-start-date",
+      text: "No start date"
+    }
+  ]
+}) }}
+
+
+
+    {% set exactduedateHtml %}
+    {{ govukDateInput({
+      id: "exact-due-date",
+      namePrefix: "exact-due-date",
+      fieldset: {
+        legend: {
+          text: ""
+        }
+      },
+      items: [
+      {
+        classes: "govuk-input--width-2",
+        name: "day"
+      },
+      {
+        classes: "govuk-input--width-2",
+        name: "month"
+      },
+      {
+        classes: "govuk-input--width-4",
+        name: "year"
+      }
+    ]
+    }) }}
+    {% endset -%}
+
+    {% set monthonlyduedateHtml %}
+    {{ govukDateInput({
+      id: "month-only-due-date",
+      namePrefix: "month-only-due-date",
+      fieldset: {
+        legend: {
+          text: ""
+        }
+      }
+    }) }}
+    {% endset -%}
+
+
+    {{ govukRadios({
+      name: "due-date",
+      fieldset: {
+        legend: {
+          text: "Due date",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Choose the level of detail you have about the date that school business professionals must finish the subtask by."
+      },
+      items: [
+        {
+          value: "exact-due-date",
+          text: "Exact due date",
+          conditional: {
+            html: exactduedateHtml
+          }
+        },
+        {
+          value: "month-only-due-date",
+          text: "Month only",
+          conditional: {
+            html: monthonlyduedateHtml
+          }
+        },
+        {
+          value: "no-due-date",
+          text: "No due date"
+        }
+      ]
+    }) }}
+
+    {{ govukTextarea({
+      name: "commentsDetail",
+      id: "comments-detail",
+      label: {
+        text: "Comments (optional)",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        text: "Enter any additional information you want to make a note of. This will be seen by anyone viewing your task."
+      }
+    }) }}
+
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

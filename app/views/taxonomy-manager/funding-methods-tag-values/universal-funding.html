@@ -1,0 +1,69 @@
+{% extends "layouts/_CHILD-TAXONOMY.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set taxonomyType = "Child taxonomy" %}
+{% set pageHeading = "Universal funding" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Universal funding"
+      }
+    },
+    {
+      key: {
+        text: "Hint text"
+      },
+      value: {
+        html: "Choose the main aim of this fund."
+      }
+    },
+    {
+      key: {
+        text: "Part of taxonomy"
+      },
+      value: {
+        html: "Funding methods"
+      },
+      actions: {
+        items: [
+          {
+            href: "../funding-tag-values/funding-methods",
+            text: "View",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Tag values</h2>
+
+<p>No tag values added yet.</p>
+
+
+{{ govukButton({
+  text: "Add a tag value",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

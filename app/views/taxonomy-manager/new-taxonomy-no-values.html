@@ -1,0 +1,86 @@
+{% extends "layouts/_TAXONOMY.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set taxonomyType = "Taxonomy" %}
+{% set pageHeading = "{{data['Name']}}" %}
+{% set active = "true" %}
+{% set back = "true" %}
+{% set newTaxonomy = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        text: data['Name']
+      }
+    },
+    {
+      key: {
+        text: "Hint text"
+      },
+      value: {
+        text: data['child-taxonomy-hint'] or "No hint text added"
+      }
+    },
+    {
+      key: {
+        text: "Location"
+      },
+      value: {
+        text: data['childTaxonomyLocation']
+      }
+    },
+    {
+      key: {
+        text: "Requirement"
+      },
+      value: {
+        text: data['childTaxonomyRequirement']
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Input options"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Type"
+      },
+      value: {
+        html: "Radio buttons"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Tag values</h2>
+
+<p>Create tag values for this taxonomy.</p>
+
+{{ govukButton({
+  text: "Add a new tag value",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

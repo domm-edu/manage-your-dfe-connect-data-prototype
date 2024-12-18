@@ -1,0 +1,71 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "services" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <h1 class="govuk-heading-l">Teams</h1>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      classes: "govuk-table--small-text-until-tablet",
+      head: [
+        {
+          text: "Service name"
+        },
+        {
+          text: "Status"
+        },
+        {
+          text: "Group"
+        },
+        {
+          text: "Last updated"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: '<a href="school-census-team">	School census</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "Operations and Infrastructure"
+          },
+          {
+            text: "13 Oct 2024"
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census</a>'
+          },
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            text: "Operations and Infrastructure"
+          },
+          {
+            text: "5 Jan 2024"
+          }
+        ]
+      ]
+    }) }}
+
+
+
+{% endblock %}
+
+
+

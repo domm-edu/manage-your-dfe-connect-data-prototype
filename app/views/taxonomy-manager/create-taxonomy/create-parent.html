@@ -1,0 +1,101 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+<h1 class="govuk-heading-l">Create a parent taxonomy</h1>
+
+<form action="add-tags-now" method="post">
+
+
+  {{ govukInput({
+    label: {
+      text: "Name",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    },
+    id: "parent-taxonomy-name",
+    name: "parent-taxonomy-name"
+  }) }}
+  
+  {{ govukInput({
+    label: {
+      text: "Hint text (optional)",
+      classes: "govuk-label--s",
+      isPageHeading: false
+    },
+    id: "parent-taxonomy-hint",
+    name: "parent-taxonomy-hint"
+  }) }}
+  
+  {{ govukRadios({
+    name: "parentTaxonomyLocation",
+    fieldset: {
+      legend: {
+        text: "Location",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "Service",
+        text: "Service"
+      },
+      {
+        value: "Task",
+        text: "Task"
+      },
+      {
+        value: "Subtask",
+        text: "Subtask"
+      },
+      {
+        value: "Resources",
+        text: "Resources"
+      }
+    ]
+  }) }}
+  
+  {{ govukRadios({
+    name: "parentTaxonomyRequirement",
+    fieldset: {
+      legend: {
+        text: "Requirement",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "Mandatory",
+        text: "Mandatory"
+      },
+      {
+        value: "Optional",
+        text: "Optional"
+      }
+    ]
+  }) }}
+  
+  
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+  
+    {{ govukButton({
+      text: "Save as draft",
+      classes: "govuk-button--secondary"
+    }) }}
+  
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}
+
+
+
+

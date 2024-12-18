@@ -1,0 +1,353 @@
+{% extends "layouts/_TAXONOMY.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set taxonomyType = "Parent taxonomy" %}
+{% set pageHeading = "Categories" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Categories"
+      }
+    },
+    {
+      key: {
+        text: "Hint text"
+      },
+      value: {
+        html: "Select all categories that apply."
+      }
+    },
+    {
+      key: {
+        text: "Location"
+      },
+      value: {
+        html: "Task"
+      }
+    },
+    {
+      key: {
+        text: "Requirement"
+      },
+      value: {
+        html: "Mandatory"
+      }
+    }
+  ]
+}) }}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Input options"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Type"
+      },
+      value: {
+        html: "Checkboxes"
+      }
+    },
+    {
+      key: {
+        text: "Alternative option"
+      },
+      value: {
+        html: "None"
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Tag values</h2>
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  classes: "govuk-table--small-text-until-tablet",
+  head: [
+    {
+      text: "Tag name"
+    },
+    {
+      text: "Database term"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Action"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="activity-tag-values/apply-for-something">Academy trust handbook</a>'
+      },
+      {
+        text: "#ATH"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="activity-tag-values/create-or-publish-report">Buildings</a>'
+      },
+      {
+        text: "#buildings"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="activity-tag-values/create-policy">Compliance</a>'
+      },
+      {
+        text: "#compliance"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="activity-tag-values/data-return">Finance</a>'
+      },
+      {
+        text: "#finance"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="">Edit</a>'
+      }
+    ],
+    [
+      {
+        html: '<a href="funding-tag-values/funding">Funding</a>'
+      },
+      {
+        text: "#funding"
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: '<a href="activity-tag-values/funding">Edit</a>'
+      }
+    ],
+    [
+    {
+      html: '<a href="activity-tag-values/apply-for-something">Governance</a>'
+    },
+    {
+      text: "#governance"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/create-or-publish-report">Intervention</a>'
+    },
+    {
+      text: "#intervention"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/create-policy">Learning and development</a>'
+    },
+    {
+      text: "#learning"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/data-return">Pupils</a>'
+    },
+    {
+      text: "#pupils"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/review-data">Procurement</a>'
+    },
+    {
+      text: "#procurement"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/data-return">Safeguarding</a>'
+    },
+    {
+      text: "#safeguarding"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/review-data">Special needs and disabilities</a>'
+    },
+    {
+      text: "#disabilities"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/data-return">Staff and HR</a>'
+    },
+    {
+      text: "#staff"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/review-data">Teaching</a>'
+    },
+    {
+      text: "#teaching"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ],
+  [
+    {
+      html: '<a href="activity-tag-values/review-data">Technology and digital</a>'
+    },
+    {
+      text: "#technology"
+    },
+    {
+      html: '<strong class="govuk-tag govuk-tag--green">
+        Active
+      </strong>'
+    },
+    {
+      html: '<a href="">Edit</a>'
+    }
+  ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add a new tag value",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

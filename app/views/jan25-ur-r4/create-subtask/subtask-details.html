@@ -1,0 +1,83 @@
+{% extends "../layouts/_EDIT.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set nested = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Add task details</h1>
+
+    <form class="form" action="subtask-details-2" method="post">
+
+    {{ govukInput({
+      label: {
+        text: "Task name",
+        classes: "govuk-fieldset__legend--s"
+      },
+      id: "subtask-name",
+      name: "subtaskName"
+    }) }}
+
+    {{ govukTextarea({
+      name: "task-description",
+      id: "task-description",
+      label: {
+        text: "Description (optional)",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        text: "Describe the task you are creating, if needed."
+      }
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Team",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        html: "We've selected the main team responsible for the task to help as it's often the same. You can choose a different team instead if it's not right. You can also add a team if you cannot find what you're looking for."
+      },
+      id: "subTaskTeam",
+      name: "subTaskTeam"
+    }) }}
+
+    {{ govukInput({
+      label: {
+        text: "Link (optional)",
+        classes: "govuk-fieldset__legend--s"
+      },
+      hint: {
+        text: "Enter a link that takes school business professionals to where they can complete the task, if possible. "
+      },
+      id: "subTaskLink",
+      name: "subTaskLink"
+    }) }}
+
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,58 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+<h1 class="govuk-heading-l">Create a child taxonomy</h1>
+
+<form action="select-parent-tag" method="post">
+
+
+  {{ xGovukAutocomplete({
+    id: "selectParentTaxonomy",
+    name: "selectParentTaxonomy",
+    allowEmpty: false,
+    label: {
+      classes: "govuk-label--m",
+      isPageHeading: false,
+      text: "Select a parent taxonomy"
+    },
+    items: [
+      { text: "Activity" },
+      { text: "Categories" },
+      { text: "Funding aim" },
+      { text: "Funding type" },
+      { text: "Further institution types" },
+      { text: "Institution types" },
+      { text: "Phase of education" },
+      { text: "Purpose" },
+      { text: "Requirement" },
+      { text: "Size" },
+      { text: "Support level" },
+      { text: "Transactional" }
+    ]
+  }) }}
+
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  {{ govukButton({
+    text: "Save as draft",
+    classes: "govuk-button--secondary"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+

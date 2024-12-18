@@ -1,0 +1,182 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "tasks" %}
+{% set back = "true" %}
+{% set pageHeading = data['subtaskName'] %}
+{% set inreview = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+<h1 class="govuk-heading-l">Your requests</h1>
+
+<h2 class="govuk-heading-m">New task for School census</h2>
+
+<p>Sent for review at {{ "now" | govukTime }} on {{ "now" | govukDate }} by Joe Smith</p>
+
+<div class="govuk-summary-card">
+  <div class="govuk-summary-card__title-wrapper">
+    <h2 class="govuk-summary-card__title">
+      Task details
+    </h2>
+    <ul class="govuk-summary-card__actions">
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Edit task details</a>
+      </li>
+      <li class="govuk-summary-card__action">
+        <a class="govuk-link" href="#">Delete request</a>
+      </li>
+    </ul>
+  </div>
+  <div class="govuk-summary-card__content">
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Task name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subtaskName'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Description
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['task-description'] or "No description added" }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Team
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subTaskTeam'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Link
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['subTaskLink'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Requirement
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['requirement'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Transactional
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['transactionalsubTask'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Size
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['insightstagSize'] }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Insight tags
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% for a in data['tags-activity'] %}
+            {{a}},
+            {% endfor %}
+            {% for b in data['tags-purpose'] %}
+            {{b}},
+            {% endfor %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Audience tags
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% for i in data['phase'] %}
+            {{i}},
+            {% endfor %}
+            {% for o in data['tags-institution-type'] %}
+            {{o}},
+            {% endfor %}
+            {% for u in data['insitution'] %}
+            {{u}},
+            {% endfor %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Start date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['task-start-date'] == "Exact start date" %}
+
+            {{ data['exact-start-date-day'] }} {{ data['exact-start-date-month'] | monthName }} {{ data['exact-start-date-year']}}
+
+            {% elseif data['task-start-date'] == "Month only" %}
+
+            {{ data['month-only-start-date-day'] }} {{ data['month-only-start-date-month'] | monthName }} {{ data['month-only-start-date-year'] }}
+
+            {% else %}
+
+            No start date
+
+            {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Due date
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['due-date'] == "Exact due date" %}
+
+            {{ data['exact-due-date-day'] }} {{ data['exact-due-date-month'] | monthName }} {{ data['exact-due-date-year'] }}
+
+            {% elseif data['due-date'] == "Month only" %}
+
+            {{ data['month-only-due-date-day'] }} {{ data['month-only-due-date-month'] | monthName }} {{ data['month-only-due-date-year'] }}
+
+            {% else %}
+
+            No due date
+
+            {% endif %}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Comments
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['commentsDetail'] or "No comments added" }}
+      </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<p>If you need to contact us regarding your request, you can email us at <a href="">dfeconnectsupport@gov.uk</a>.</p>
+<p>You've selected this request as urgent, we aim to do this as soon as possible.</p>
+<p>We'll email you to confirm your task is live on DfE Connect or to ask for more information.</p>
+  
+</div>
+</div>
+{% endblock %}
+
+
+

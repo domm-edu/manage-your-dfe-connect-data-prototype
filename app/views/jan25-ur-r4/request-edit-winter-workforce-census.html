@@ -1,0 +1,155 @@
+{% extends "./layouts/_BASE.html" %}
+
+{% set headerActive = "requests" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Request reference: DU492833</span>
+    <h1 class="govuk-heading-l">Edit to Complete your winter workforce census return</h1>
+
+    <div class="govuk-button-group">
+    <strong class="govuk-tag govuk-tag--pink">
+      Pending
+    </strong>
+    <a class="govuk-link" href="cancel-request" style="margin-left: 15px;">Cancel request</a>
+  </div>
+
+    <p>Requested by Amit Basile at 3.20 pm on 6 Jan 2025.</p>
+
+    <h2 class="govuk-heading-m">Edited</h2>
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Description"
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Previous"
+          },
+          value: {
+            html: "Do not wait until the deadline. You should complete your school census on school census day or as close to school census day as possible."
+          }
+        },
+        {
+          key: {
+            text: "New"
+          },
+          value: {
+            html: "You should complete your school census on school census day or as close to school census day as possible. Do not wait until the deadline. "
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Due date"
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Previous"
+          },
+          value: {
+            html: "8 Nov 2025"
+          }
+        },
+        {
+          key: {
+            text: "New"
+          },
+          value: {
+            html: "9 Nov 2025"
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Not edited</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Complete your winter workforce census return"
+          }
+        },
+        {
+          key: {
+            text: "Link"
+          },
+          value: {
+            html: '<a href="www.collect.gov.uk">www.collect.gov.uk</a>'
+          }
+        },
+        {
+          key: {
+            text: "Start date"
+          },
+          value: {
+            html: "3 Oct 2024"
+          }
+        },
+        {
+          key: {
+            text: "Requirement"
+          },
+          value: {
+            html: "Mandatory"
+          }
+        }
+      ]
+    }) }}
+
+    <h2 class="govuk-heading-m">Publish and review details</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Publish date"
+          },
+          value: {
+            text: "As soon as possible"
+          }
+        },
+        {
+          key: {
+            text: "Urgency"
+          },
+          value: {
+            text: "Urgent. Updated on GOV.UK already."
+          }
+        },
+        {
+          key: {
+            text: "Review comments"
+          },
+          value: {
+            html: "No comments added"
+          }
+        }
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+    <p>We’ll email you to confirm your page is live on DfE Connect or to ask for more information.</p>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,242 @@
+{% extends "layouts/_SERVICE.html" %}
+
+{% set headerActive = "services" %}
+{% set back = "true" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-full">  
+
+    <span class="govuk-caption-l">Team</span>
+    <h1 class="govuk-heading-l">School census</h1>
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Status",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Actions",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Last updated",
+          classes: "govuk-!-width-one-quarter"
+        },
+        {
+          text: "Audit trail",
+          classes: "govuk-!-width-one-quarter"
+        }
+      ],
+      rows: [
+        [
+          {
+            html: ' <strong class="govuk-tag govuk-tag--green">
+              Active
+            </strong>'
+          },
+          {
+            html: '<a href="edit-service-1">Edit team</a>'
+          },
+          {
+            text: "13 Oct 2024"
+          },
+          {
+            html: '<a href="">View history</a>'
+          }
+        ]
+      ]
+    }) }}
+
+    {{ govukSummaryList({
+      card: {
+        title: {
+          text: "Team details"
+        },
+        actions: {
+          items: [
+            {
+              href: "school-census",
+              text: "View content pages and tasks"
+            }
+          ]
+        }
+      },
+      rows: [
+        {
+          key: {
+            text: "Service name"
+          },
+          value: {
+            html: "School census"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Service acronym"
+          },
+          value: {
+            html: "No acronym added"
+          },
+          actions: {
+            items: [
+              {
+                
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Digital service link"
+          },
+          value: {
+            html: '<a href="https://www.gov.uk/guidance/school-census"> https://www.gov.uk/guidance/school-census</a>'
+          }
+        },
+
+        {
+          key: {
+            text: "Description"
+          },
+          value: {
+            html: "Academy trusts must comply with this handbook as a condition of their funding agreement."
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Group"
+          },
+          value: {
+            html: "Operations and Infrastructure"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Directorate"
+          },
+          value: {
+            html: "Finance and Provider Market Oversight"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Deputy Director"
+          },
+          value: {
+            html: "Adrian Brook"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Team inbox email"
+          },
+          value: {
+            html: "service@dfe.gov.uk"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Service owner names"
+          },
+          value: {
+            html: "Craig Alderson"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Delegated contact"
+          },
+          value: {
+            html: "Matthew McDonald, matthew.mcdonald@education.gov.uk"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Support level"
+          },
+          value: {
+            html: "Level 2 - semi active"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Service status"
+          },
+          value: {
+            html: "Active"
+          },
+          actions: {
+            items: [
+              {
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,49 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+
+
+<span class="govuk-caption-l">{{ data['parent-taxonomy-name'] }} parent taxonomy</span>
+<h1 class="govuk-heading-l">Add tag values</h1>
+
+<form action="../add-tags1" method="post">
+
+{{ govukInput({
+  label: {
+    text: "Name",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  id: "name",
+  name: "name"
+}) }}
+
+{{ govukInput({
+  label: {
+    text: "Database term",
+    classes: "govuk-label--s",
+    isPageHeading: false
+  },
+  id: "term",
+  name: "term"
+}) }}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Confirm"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+{% endblock %}
+
+
+
+

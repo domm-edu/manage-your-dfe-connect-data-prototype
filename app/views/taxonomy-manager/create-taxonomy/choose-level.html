@@ -1,0 +1,48 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set back = "true" %}
+{% set headerActive = "taxonomies" %}
+
+{% block service %}
+
+<h1 class="govuk-heading-l">Create a taxonomy</h1>
+
+<form action="../parent-or-child" method="post">
+
+{{ govukRadios({
+  name: "choose-level",
+  fieldset: {
+    legend: {
+      text: "Choose level",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Parent taxonomy",
+      text: "Parent taxonomy"
+    },
+    {
+      value: "Child taxonomy",
+      text: "Child taxonomy"
+    }
+  ]
+}) }}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+</form>
+
+
+{% endblock %}
+
+
+
+

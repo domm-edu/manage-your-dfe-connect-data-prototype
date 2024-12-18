@@ -1,0 +1,182 @@
+{% extends "layouts/_SU-BASE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set back = "true" %}
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">  
+
+    <h1 class="govuk-heading-l">Check your answers before publishing your changes</h1>
+
+    <form class="form" action="../publish-or-draft-taxonomy" method="post">
+
+      {% if data['add-tags-now'] == "No" %}
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['child-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childTaxonomyLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['childTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      {% else %}
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Taxonomy name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-name'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> task name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hint text
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-taxonomy-hint'] or "No hint text added" }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> description</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Subtask location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyLocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Requirement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Input type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-radio-or-checkbox'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Alternative option
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parent-alternative-option'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Values
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['parentTaxonomyRequirement'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> link</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      {% endif %}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Publish taxonomy",
+        href: "../new-taxonomy"
+      }) }}
+
+      {{ govukButton({
+        text: "Save and finish later",
+        classes: "govuk-button--secondary",
+        name: "save",
+        value: "true"
+      }) }}
+    
+      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+    </div>
+
+  </form>
+      
+
+
+{% endblock %}
+
+
+

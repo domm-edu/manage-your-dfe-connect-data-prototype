@@ -1,0 +1,68 @@
+{% extends "layouts/_TAG-VALUE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set tagType = "Tag" %}
+{% set pageHeading = "Create or publish a report" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Create or publish a report"
+      }
+    },
+    {
+      key: {
+        text: "Database term"
+      },
+      value: {
+        html: "#report"
+      }
+    },
+    {
+      key: {
+        text: "Part of taxonomy"
+      },
+      value: {
+        html: "Activity"
+      },
+      actions: {
+        items: [
+          {
+            href: "../activity",
+            text: "View",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Child taxonomies</h2>
+
+<p>There are no child taxonomies for this tag.</p>
+
+{{ govukButton({
+  text: "Add a child taxonomy",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+

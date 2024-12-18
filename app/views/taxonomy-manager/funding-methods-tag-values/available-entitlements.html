@@ -1,0 +1,148 @@
+{% extends "/layouts/_TAG-VALUE.html" %}
+
+{% set headerActive = "taxonomies" %}
+{% set tagType = "Parent tag" %}
+{% set pageHeading = "Available entitlements" %}
+{% set active = "true" %}
+{% set back = "true" %}
+
+{% block service %}
+
+{{ govukSummaryList({
+  card: {
+    title: {
+      text: "Overview"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Name"
+      },
+      value: {
+        html: "Available entitlements"
+      }
+    },
+    {
+      key: {
+        text: "Database term"
+      },
+      value: {
+        html: "#entitled_fund"
+      }
+    },
+    {
+      key: {
+        text: "Part of taxonomy"
+      },
+      value: {
+        html: "Funding methods"
+      },
+      actions: {
+        items: [
+          {
+            href: "../activity",
+            text: "View",
+            visuallyHiddenText: "name"
+          }
+        ]
+      }
+    }
+  ]
+}) }}
+
+<h2 class="govuk-heading-m">Child taxonomies</h2>
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  classes: "govuk-table--small-text-until-tablet",
+  head: [
+    {
+      text: "Name"
+    },
+    {
+      text: "Status"
+    },
+    {
+      text: "Input type"
+    },
+    {
+      text: "Requirement"
+    },
+    {
+      text: "Values"
+    }
+  ],
+  rows: [
+    [
+      {
+        html: '<a href="universal-funding">Universal funding</a>'
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: 'Checkboxes'
+      },
+      {
+        html: 'Mandatory'
+      },
+      {
+        html: '0'
+      }
+    ],
+    [
+      {
+        html: '<a href="formulated-funding">Formulated funding</a>'
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: 'Checkboxes'
+      },
+      {
+        html: 'Mandatory'
+      },
+      {
+        html: '0'
+      }
+    ],
+    [
+      {
+        html: '<a href="general-grant">Available through a general grant</a>'
+      },
+      {
+        html: '<strong class="govuk-tag govuk-tag--green">
+          Active
+        </strong>'
+      },
+      {
+        html: 'Checkboxes'
+      },
+      {
+        html: 'Mandatory'
+      },
+      {
+        html: '0'
+      }
+    ]
+  ]
+}) }}
+
+{{ govukButton({
+  text: "Add a child taxonomy",
+  classes: "govuk-button--secondary"
+}) }}
+
+
+{% endblock %}
+
+
+
+
