@@ -8,7 +8,9 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    <h1 class="govuk-heading-l">Are you sure you want to remove the request?</h1>
+    <form action="cancel-winter-workforce" method="post">
+
+    <h1 class="govuk-heading-l">Are you sure you want to cancel the request?</h1>
 
     <div class="govuk-inset-text">
       Your request information cannot be edited once it has been removed.
@@ -16,13 +18,13 @@
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Confirm remove request",
-        href: "requests-removed"
+        text: "Confirm cancel request",
+        href: "requests-cancelled-winter-workforce"
       }) }}
     
-      <a class="govuk-link" href="javascript:history.back()">Cancel</a>
+      <a class="govuk-link" href="requests">Cancel</a>
     </div>
-
+  </form>
 
 {% endblock %}
 

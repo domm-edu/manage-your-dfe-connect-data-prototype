@@ -1,58 +1,14 @@
 {% extends "./layouts/_BASE.html" %}
 
 {% set headerActive = "requests" %}
+{% set back = "true" %}
 
 {% block content %}
 
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    <h1 class="govuk-heading-l">Your requests</h1>
-
-    <p>Check the status of your requests.</p>
-
-    <h2 class="govuk-heading-m">Pending requests</h2>
-
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Name</th>
-          <th scope="col" class="govuk-table__header">Type</th>
-          <th scope="col" class="govuk-table__header">Reference number</th>
-          <th scope="col" class="govuk-table__header">Requested on</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        {% if data['task-start-date'] %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="ur-task">{{ data['subtaskName'] }}</a></th>
-          <td class="govuk-table__cell">New</td>
-          <td class="govuk-table__cell">Joe Smith</td>
-          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
-        </tr>
-        {% endif %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="request-edit-winter-workforce-census">Complete your winter workforce census return</a></th>
-          <td class="govuk-table__cell">Edit task</td>
-          <td class="govuk-table__cell">FB164920</td>
-          <td class="govuk-table__cell">9 Jan 2025</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="request-new-dfe-connect-page">Workforce census	</a></th>
-          <td class="govuk-table__cell">New page</td>
-          <td class="govuk-table__cell">PG184027</td>
-          <td class="govuk-table__cell">9 Jan 2025</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="request-new-task-school-census">Check the school census guidance for any changes</a></th>
-          <td class="govuk-table__cell">New task</td>
-          <td class="govuk-table__cell">BC276498</td>
-          <td class="govuk-table__cell">8 Jan 2025</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2 class="govuk-heading-m">Returned requests</h2>
+    <h1 class="govuk-heading-l">Returned requests</h1>
 
     {{ govukTable({
       captionClasses: "govuk-table__caption--m",
@@ -232,15 +188,190 @@
               Approved
             </strong>'
           }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census winter guidance updated</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "PQ174923"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="request-returned-review">Amend your autumn school census data, if needed</a>'
+          },
+          {
+            text: "New task"
+          },
+          {
+            text: "KK484401"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census winter guidance updated</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "FB164920"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Complete your spring school census return</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "HC178391"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Workforce census</a>'
+          },
+          {
+            text: "New team"
+          },
+          {
+            text: "AD884401"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Amend your spring school census data, if needed</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "IG194823"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Complete your summer school census return</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "GP821604"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Complete your winter school census return</a>'
+          },
+          {
+            text: "New task"
+          },
+          {
+            text: "AD884401"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Read the latest on school census data and submission timelines</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "IG194823"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="">Complete your summer workforce census return</a>'
+          },
+          {
+            text: "Edit task"
+          },
+          {
+            text: "GP821604"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--green">
+              Approved
+            </strong>'
+          }
         ]
       ]
     }) }}
 
-    <p><a href="all-returned-requests">View all returned requests</a> </p>
-
-    <h2 class="govuk-heading-m">Contact us</h2>
-
-    <p>If you need to contact us regarding your request, you can email us at <a href="">DfEConnect.Content@education.gov.uk</a>.</p>
+    {{ govukPagination({
+      next: {
+        href: "#"
+      },
+      items: [
+        {
+          number: 1,
+          current: true,
+          href: "#"
+        },
+        {
+          number: 2,
+          href: "#"
+        },
+        {
+          number: 3,
+          href: "#"
+        }
+      ]
+    }) }}
 
 
 {% endblock %}

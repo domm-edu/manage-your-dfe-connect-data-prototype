@@ -23,4 +23,13 @@ router.post('/urgent-request-question', function(request, response) {
     }
 })
 
+router.post('/cancel-winter-workforce', function (req, res) {
+
+    const winterWorkforce = req.session.data['winter-workforce']
+    if (winterWorkforce == 'true'){
+      res.redirect('requests-cancelled')
+    } 
+
+  });
+
 module.exports = router

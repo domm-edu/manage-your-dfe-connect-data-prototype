@@ -7,9 +7,11 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
+    {% if ('winter-workforce'== 'true') %}
+
     {% set html %}
       <h3 class="govuk-notification-banner__heading">
-        You’ve cancelled the request for [Task name].
+        You've cancelled the request for [Task name].
       </h3>
     {% endset %}
 
@@ -18,13 +20,13 @@
       type: "success"
     }) }}
 
+    {% endif %}
+
     <h1 class="govuk-heading-l">Your requests</h1>
 
     <p>Check the status of your requests.</p>
 
     <h2 class="govuk-heading-m">Pending requests</h2>
-
-    <p>Requests for changes or new teams, tasks and pages that are pending review.</p>
 
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -66,8 +68,6 @@
     </table>
 
     <h2 class="govuk-heading-m">Returned requests</h2>
-
-    <p>Returned requests for new teams, tasks, pages or edits, made by you or a member of your team.</p>
 
     {{ govukTable({
       captionClasses: "govuk-table__caption--m",
@@ -251,7 +251,7 @@
       ]
     }) }}
 
-    <p><a href="">View all returned requests</a> </p>
+    <p><a href="all-returned-requests">View all returned requests</a> </p>
 
     <h2 class="govuk-heading-m">Contact us</h2>
 
