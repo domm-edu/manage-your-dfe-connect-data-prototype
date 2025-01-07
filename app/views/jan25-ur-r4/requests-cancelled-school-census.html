@@ -7,11 +7,9 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    {% if data['new-dfe-connect-page'] %}
-
     {% set html %}
       <h3 class="govuk-notification-banner__heading" style="max-width: 100%;">
-        You’ve removed the request for Amend your autumn school census data, if needed.
+        You've cancelled the request for Check the school census guidance for any changes.
       </h3>
     {% endset %}
 
@@ -20,43 +18,6 @@
       type: "success"
     }) }}
 
-    <h1 class="govuk-heading-l">Your requests</h1>
-
-    <p>Check the status of your requests.</p>
-
-    <h2 class="govuk-heading-m">Pending requests</h2>
-
-    <table class="govuk-table">
-      <thead class="govuk-table__head">
-        <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Name</th>
-          <th scope="col" class="govuk-table__header">Type</th>
-          <th scope="col" class="govuk-table__header">Reference number</th>
-          <th scope="col" class="govuk-table__header">Requested on</th>
-        </tr>
-      </thead>
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="request-new-task-school-census">Check the school census guidance for any changes</a></th>
-          <td class="govuk-table__cell">New task</td>
-          <td class="govuk-table__cell">BC276498</td>
-          <td class="govuk-table__cell">8 Jan 2025</td>
-        </tr>
-      </tbody>
-    </table>
-
-    {% endif %}
-
-    {% set html %}
-      <h3 class="govuk-notification-banner__heading" style="max-width: 100%;">
-        You’ve removed the request for Amend your autumn school census data, if needed.
-      </h3>
-    {% endset %}
-
-    {{ govukNotificationBanner({
-      html: html,
-      type: "success"
-    }) }}
 
     <h1 class="govuk-heading-l">Your requests</h1>
 
@@ -96,6 +57,22 @@
           {
             html: '<strong class="govuk-tag govuk-tag--green">
               Approved
+            </strong>'
+          }
+        ],
+        [
+          {
+            html: '<a href="request-returned-review">Amend your autumn school census data, if needed</a>'
+          },
+          {
+            text: "New task"
+          },
+          {
+            text: "KK484401"
+          },
+          {
+            html: '<strong class="govuk-tag govuk-tag--red">
+              Returned
             </strong>'
           }
         ],

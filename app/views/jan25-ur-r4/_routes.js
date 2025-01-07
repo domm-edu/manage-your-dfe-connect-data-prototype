@@ -25,11 +25,32 @@ router.post('/urgent-request-question', function(request, response) {
 
 router.post('/cancel-winter-workforce', function (req, res) {
 
-    const winterWorkforce = req.session.data['winter-workforce']
+    const winterWorkforce = req.session.data['winterWorkforce']
     if (winterWorkforce == 'true'){
       res.redirect('requests-cancelled')
-    } 
+    } else {
+        res.redirect("create-subtask/comments")
+    }
+  })
 
-  });
+  router.post('/cancel-workforce-census', function (req, res) {
+
+    const workforceCensus = req.session.data['workforceCensus']
+    if (workforceCensus == 'true'){
+      res.redirect('requests-cancelled')
+    } else {
+        res.redirect("create-subtask/comments")
+    }
+  })
+
+  router.post('/cancel-school-census', function (req, res) {
+
+    const schoolCensus = req.session.data['schoolCensus']
+    if (schoolCensus == 'true'){
+      res.redirect('requests-cancelled')
+    } else {
+        res.redirect("create-subtask/comments")
+    }
+  })
 
 module.exports = router

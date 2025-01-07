@@ -7,11 +7,40 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    {% if ('winter-workforce'== 'true') %}
+    {% if data['winterWorkforce'] %}
 
     {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        You've cancelled the request for [Task name].
+      <h3 class="govuk-notification-banner__heading" style="max-width: 100%;">
+        You've cancelled the request for Complete your winter workforce census return.
+      </h3>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }}
+
+
+
+    {% elseif data['workforceCensus'] %}
+
+    {% set html %}
+      <h3 class="govuk-notification-banner__heading" style="max-width: 100%;">
+        You've cancelled the request for New DfE Connect page.
+      </h3>
+    {% endset %}
+
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }}
+
+
+    {% elseif data['schoolCensus'] %}
+
+    {% set html %}
+      <h3 class="govuk-notification-banner__heading" style="max-width: 100%;">
+        You've cancelled the request for Check the school census guidance for any changes.
       </h3>
     {% endset %}
 
@@ -28,6 +57,8 @@
 
     <h2 class="govuk-heading-m">Pending requests</h2>
 
+    {% if data['winterWorkforce'] is undefined %}
+
     <table class="govuk-table">
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
@@ -38,14 +69,6 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% if data['task-start-date'] %}
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell"><a href="ur-task">{{ data['subtaskName'] }}</a></th>
-          <td class="govuk-table__cell">New</td>
-          <td class="govuk-table__cell">Joe Smith</td>
-          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
-        </tr>
-        {% endif %}
         <tr class="govuk-table__row">
           <td class="govuk-table__cell"><a href="request-edit-winter-workforce-census">Complete your winter workforce census return</a></th>
           <td class="govuk-table__cell">Edit task</td>
@@ -66,6 +89,37 @@
         </tr>
       </tbody>
     </table>
+    
+
+    {% elseif data['winterWorkforce'] + data['workforceCensus'] %}
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header govuk-!-width-one-half">Name</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Reference number</th>
+          <th scope="col" class="govuk-table__header">Requested on</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="request-new-dfe-connect-page">Workforce census	</a></th>
+          <td class="govuk-table__cell">New page</td>
+          <td class="govuk-table__cell">PG184027</td>
+          <td class="govuk-table__cell">9 Jan 2025</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="request-new-task-school-census">Check the school census guidance for any changes</a></th>
+          <td class="govuk-table__cell">New task</td>
+          <td class="govuk-table__cell">BC276498</td>
+          <td class="govuk-table__cell">8 Jan 2025</td>
+        </tr>
+      </tbody>
+    </table>
+
+    {% endif %}
+
 
     <h2 class="govuk-heading-m">Returned requests</h2>
 

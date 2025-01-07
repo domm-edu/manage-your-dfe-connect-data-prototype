@@ -8,7 +8,7 @@
 <div class="govuk-grid-row"> 
   <div class="govuk-grid-column-full">  
 
-    <form action="cancel-winter-workforce" method="post">
+    <form action="requests-cancelled-winter-workforce" method="post">
 
     <h1 class="govuk-heading-l">Are you sure you want to cancel the request?</h1>
 
@@ -17,13 +17,13 @@
     </div>
 
     <div class="govuk-button-group">
-      {{ govukButton({
-        text: "Confirm cancel request",
-        href: "requests-cancelled-winter-workforce"
-      }) }}
-    
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="winterWorkforce" value="true">
+        Confirm cancel request
+      </button>
       <a class="govuk-link" href="requests">Cancel</a>
     </div>
+
+  
   </form>
 
 {% endblock %}
