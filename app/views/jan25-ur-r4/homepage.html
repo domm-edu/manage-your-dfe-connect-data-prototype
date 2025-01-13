@@ -145,84 +145,43 @@
     <h2 class="govuk-heading-m">Your pending requests</h2>
 
     <p class="govuk-body">Pending requests for new tasks or changes made by you or a member of your team.</p>
-    
-    {{ govukTable({
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: false,
-      classes: "govuk-table--small-text-until-tablet",
-      head: [
-        {
-          text: "Title"
-        },
-        {
-          text: "Type"
-        },
-        {
-          text: "Requested by"
-        },
-        {
-          text: "Requested on"
-        }
-      ],
-      rows: [
-        [
-          {
-            html: '<a href="">Review updated information for workforce census data</a>'
-          },
-          {
-            text: "Change"
-          },
-          {
-            text: "Lucy Johnson"
-          },
-          {
-            text: "Oct 2024"
-          }
-        ],
-        [
-          {
-            html: '<a href="">School census guidance updated</a>'
-          },
-          {
-            text: "New"
-          },
-          {
-            text: "Lucy Johnson"
-          },
-          {
-            text: "No start date"
-          }
-        ],
-        [
-          {
-            html: '<a href="">Read the latest on school census data and submission timelines</a>'
-          },
-          {
-            text: "Change"
-          },
-          {
-            text: "Sam O'Connor"
-          },
-          {
-            text: "Oct 2024"
-          }
-        ],
-        [
-          {
-            html: '<a href="">Workforce census</a>'
-          },
-          {
-            text: "Change"
-          },
-          {
-            text: "Lucy Johnson"
-          },
-          {
-            text: "31 Oct 2024"
-          }
-        ]
-      ]
-    }) }}
+
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Title</th>
+          <th scope="col" class="govuk-table__header">Type</th>
+          <th scope="col" class="govuk-table__header">Requested by</th>
+          <th scope="col" class="govuk-table__header">Requested on</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Review updated information for workforce census data</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Lucy Johnson</td>
+          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">School census guidance updated</a></th>
+          <td class="govuk-table__cell">New</td>
+          <td class="govuk-table__cell">Lucy Johnson</td>
+          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Read the latest on school census data and submission timelines</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Sam O'Connor</td>
+          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="">Workforce census</a></th>
+          <td class="govuk-table__cell">Change</td>
+          <td class="govuk-table__cell">Lucy Johnson</td>
+          <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+        </tr>
+      </tbody>
+    </table>
 
 {% endblock %}
 
